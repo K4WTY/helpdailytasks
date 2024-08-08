@@ -20,7 +20,7 @@ def main():
     tab1, tab2, tab3 = st.tabs(["Receitas", "Cobranças", "Inadimplências"])
     
     with st.sidebar:
-        st.subheader("PDFs")
+        st.subheader("Version - 08.08.2024 14:25")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
 
     with tab1:
@@ -33,9 +33,7 @@ def main():
         st.warning("Caso não puxe alguma informação alguma máscara pode estar errada!")
 
         if st.button("Puxar receitas"):
-
             array = puxarTextoReceitas(pdf_docs, mascaraAcres, mascaraManual, naoAcrescenta)
-
             for i in range(len(array)):
                 if array[i] == "Receitas":
 
@@ -54,12 +52,10 @@ def main():
                         st.write(sigla + " Manual: " + array[i + 2])
                 
                 if array[i] == "mascaraAcres":
-                    numero = 0
                     numero = array[i + 3]
-                    numero = float(numero.replace('.','').replace(',','.'))
                     if array[i + 4] != "naoAcrescenta":
                         with tab1:
-                            st.write(sigla + " Acrés./Desc: " + str(numero).replace('.',','))
+                            st.write(sigla + " Acrés./Desc: " + numero)
 
                 if array[i] == "Total:":
                     with tab1:

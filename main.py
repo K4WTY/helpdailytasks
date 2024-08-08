@@ -2,11 +2,17 @@ import streamlit as st
 import re
 from utlis import text
 
-def allFilesText(docs):
+def puxarTextoReceitas(docs, maskAcres, maskManual, maskProvaReal):
     all_files_text = text.process_files(docs)
     all_files_text = re.sub("Total: 0,00", "", all_files_text)
-    all_files_text = re.sub("08/24 A", " mascaraAcres", all_files_text)
-    all_files_text = re.sub("08/24 M", " mascaraManual", all_files_text)
+    all_files_text = re.sub("CONDOMINO", "naoAcrescenta", all_files_text)
+    all_files_text = re.sub(maskAcres, " mascaraAcres", all_files_text)
+    all_files_text = re.sub(maskManual, " mascaraManual", all_files_text)
+    all_files_text = re.sub(maskProvaReal, "naoAcrescenta ", all_files_text)
+    return all_files_text.split()
+
+def puxarTexto(docs):
+    all_files_text = text.process_files(docs)
     return all_files_text.split()
 
 def main():
@@ -18,9 +24,18 @@ def main():
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
 
     with tab1:
+        st.image("./imgs/exemplo1.png")
+        mascaraAcres = st.text_input("Mask Acrés./Desc (Ex: 08/24 A)", "")
+        st.image("./imgs/exemplo2.png")
+        mascaraManual = st.text_input("Mask Manual (Ex: 08/24 M)", "")
+        st.image("./imgs/exemplo3.png")
+        naoAcrescenta = st.text_input("Mask Prova Real (Ex: 109/)", "")
+        st.warning("Caso não puxe alguma informação alguma máscara pode estar errada!")
+
         if st.button("Puxar receitas"):
-            array = allFilesText(pdf_docs)
-            
+
+            array = puxarTextoReceitas(pdf_docs, mascaraAcres, mascaraManual, naoAcrescenta)
+
             for i in range(len(array)):
                 if array[i] == "Receitas":
 
@@ -42,7 +57,7 @@ def main():
                     numero = 0
                     numero = array[i + 3]
                     numero = float(numero.replace('.','').replace(',','.'))
-                    if numero < 100:
+                    if array[i + 4] != "naoAcrescenta":
                         with tab1:
                             st.write(sigla + " Acrés./Desc: " + str(numero).replace('.',','))
 
@@ -53,7 +68,7 @@ def main():
 
     with tab2:
         if st.button("Puxar Cobranças"):
-            array = allFilesText(pdf_docs)
+            array = puxarTexto(pdf_docs)
             
             for i in range(len(array)):
                 if array[i] == "Composição":
@@ -77,7 +92,7 @@ def main():
         if st.button("Puxar Inadimplências"):
             siglasRepetidas = []
             print(siglasRepetidas)
-            array = allFilesText(pdf_docs)
+            array = puxarTexto(pdf_docs)
             
             for i in range(len(array)):
                 if array[i] == "Inadimplência":

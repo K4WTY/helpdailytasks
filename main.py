@@ -35,6 +35,7 @@ def main():
         if st.button("Puxar receitas"):
         
             totalAcres = 0
+            totalAcresConc = ""
 
             array = puxarTextoReceitas(pdf_docs, mascaraAcres, mascaraManual, naoAcrescenta)
             for i in range(len(array)):
@@ -51,22 +52,36 @@ def main():
                         sigla += array[i - 1]
 
                 if array[i] == "mascaraManual":
-
                     with tab1:
-                        st.write(sigla + " Manual: " + array[i + 2])
+                        original_title = '<p style="color:red; font-weight: bold;">' + sigla + ' Manual: ' + array[i + 2] + '</p>'
+                        st.markdown(original_title, unsafe_allow_html=True)
+                        # st.write(sigla + " Manual: " + array[i + 2])
                 
                 if array[i] == "mascaraAcres":
                     numero = array[i + 3]
                     if array[i + 4] != "naoAcrescenta":
                         totalAcres = totalAcres + float(numero.replace('.','').replace(',','.'))
+
+                        if totalAcresConc == "":
+                            totalAcresConc = numero
+                        else:
+                            totalAcresConc += "+" + numero
+
                         with tab1:
                             st.write(sigla + " Acrés./Desc: " + numero)
 
                 if array[i] == "Total:":
                     with tab1:
-                        if totalAcres != 0:
-                            st.write("Acrés./Desc (somados): " + str(totalAcres).replace('.',','))
+                        if totalAcresConc != "":
+                            st.code("=" + totalAcresConc, language="python")
+                            totalAcresConc = ""
+                            
+
                         st.write(sigla + " " + array[i] + " " + array[i + 1])
+                        if totalAcres != 0:
+                            # st.write("Acrés./Desc (somados): " + str(totalAcres).replace('.',','))
+                            # st.write("Total (excel): =" + array[i + 1] + "-" + str(totalAcres).replace('.',','))
+                            st.code("=" + array[i + 1] + "-" + str(totalAcres).replace('.',','), language="python")
                         st.write("-----------------------------------------")
                         totalAcres = 0
 

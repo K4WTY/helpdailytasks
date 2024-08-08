@@ -33,10 +33,13 @@ def main():
         st.warning("Caso não puxe alguma informação alguma máscara pode estar errada!")
 
         if st.button("Puxar receitas"):
+        
+            totalAcres = 0
+
             array = puxarTextoReceitas(pdf_docs, mascaraAcres, mascaraManual, naoAcrescenta)
             for i in range(len(array)):
-                if array[i] == "Receitas":
 
+                if array[i] == "Receitas":
                     sigla = ""
                     if array[i - 1] == "(2NG)":
                         sigla += array[i - 2] + " NG"
@@ -48,19 +51,24 @@ def main():
                         sigla += array[i - 1]
 
                 if array[i] == "mascaraManual":
+
                     with tab1:
                         st.write(sigla + " Manual: " + array[i + 2])
                 
                 if array[i] == "mascaraAcres":
                     numero = array[i + 3]
                     if array[i + 4] != "naoAcrescenta":
+                        totalAcres = totalAcres + float(numero.replace('.','').replace(',','.'))
                         with tab1:
                             st.write(sigla + " Acrés./Desc: " + numero)
 
                 if array[i] == "Total:":
                     with tab1:
+                        if totalAcres != 0:
+                            st.write("Acrés./Desc (somados): " + str(totalAcres).replace('.',','))
                         st.write(sigla + " " + array[i] + " " + array[i + 1])
                         st.write("-----------------------------------------")
+                        totalAcres = 0
 
     with tab2:
         if st.button("Puxar Cobranças"):

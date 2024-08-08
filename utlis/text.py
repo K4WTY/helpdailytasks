@@ -1,4 +1,4 @@
-from PyPDF import PdfReader
+from pypdf import PdfReader
 
 def process_files(files):
     text = ""

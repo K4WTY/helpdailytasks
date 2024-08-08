@@ -5,7 +5,7 @@ from utlis import text
 def puxarTextoReceitas(docs, maskAcres, maskManual, maskProvaReal):
     all_files_text = text.process_files(docs)
     all_files_text = re.sub("Total: 0,00", "", all_files_text)
-    all_files_text = re.sub("CONDOMINO", "naoAcrescenta", all_files_text)
+    all_files_text = re.sub("CONDOMÍNIO", "naoAcrescenta", all_files_text)
     all_files_text = re.sub(maskAcres, " mascaraAcres", all_files_text)
     all_files_text = re.sub(maskManual, " mascaraManual", all_files_text)
     all_files_text = re.sub(maskProvaReal, "naoAcrescenta ", all_files_text)

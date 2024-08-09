@@ -20,7 +20,7 @@ def main():
     tab1, tab2, tab3 = st.tabs(["Receitas", "Cobranças", "Inadimplências"])
     
     with st.sidebar:
-        st.subheader("Version - 08.08.2024 14:25")
+        st.subheader("Version - 08.08.2024 22:09")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
 
     with tab1:
@@ -87,6 +87,7 @@ def main():
 
     with tab2:
         if st.button("Puxar Cobranças"):
+            siglasRepetidas = []
             array = puxarTexto(pdf_docs)
             
             for i in range(len(array)):
@@ -102,15 +103,24 @@ def main():
                     else:
                         sigla += array[i - 1]
 
-                if array[i] == "unidades" and array[i + 2] != "Outros":
+                    if siglasRepetidas != [] and siglasRepetidas[0] == sigla:
+                        sigla = sigla + " (NG)"
+                        siglasRepetidas.pop()
+
+                    if siglasRepetidas != [] and siglasRepetidas[0] != sigla:
+                        siglasRepetidas.pop()
+
+                if array[i] == "Total":
                     with tab2:
-                        st.write(sigla + " Pendentes: " + array[i + 2])
+                        if siglasRepetidas == []:
+                            siglasRepetidas.append(sigla)
+
+                        st.write(sigla + " A vencer: " + array[i + 1])
                         st.write("-----------------------------------------")
 
     with tab3:
         if st.button("Puxar Inadimplências"):
             siglasRepetidas = []
-            print(siglasRepetidas)
             array = puxarTexto(pdf_docs)
             
             for i in range(len(array)):

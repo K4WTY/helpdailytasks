@@ -24,7 +24,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças"])
     with st.sidebar:
-        st.subheader("Version - 08.08.2024 22:09")
+        st.subheader("Version - 12.08.2024 17:52")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")

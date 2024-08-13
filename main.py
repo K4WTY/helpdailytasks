@@ -24,7 +24,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças"])
     with st.sidebar:
-        st.subheader("Version - 12.08.2024 17:52")
+        st.subheader("Version - 13.08.2024 11:00")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")
@@ -93,22 +93,27 @@ def main():
                         st.write("-----------------------------------------")
     with tab3:
         if st.button("Puxar Inadimplências"):
+            ng = False
             array = puxarTexto(pdf_docs)
             for i in range(len(array)):
+                if array[i] == "NG" or array[i] == "2NG":
+                    ng = True
                 if array[i] == "Inadimplência":
-                    sigla = ""
-                    if array[i - 1] == "(2NG)":
-                        sigla += array[i - 2] + " NG"
-                    elif array[i - 1] == ")":
-                        sigla += array[i - 2] + ")"
-                    elif array[i - 1] == "2)":
-                        sigla += array[i - 2] + " NG"
-                    else:
-                        sigla += array[i - 1]
-                if array[i] == "inadimplentes":
+                        if array[i - 1] == "2)" or array[i - 1] == ")":
+                            sigla = array[i - 2] + ")"
+                        elif array[i - 1] == "(2NG)":
+                            sigla = array[i - 2]
+                        else:
+                            sigla = array[i - 1]
+                if array[i] == "inadimplentes" or array[i] == "inadimplente" or array[i] == "(0,00%)":
                     with tab3:
-                        st.write(sigla + " Inadimplência: " + array[i + 2])
-                        st.write("-----------------------------------------")
+                        if ng:
+                            st.write(sigla + " (NG)" + " Inadimplência: " + array[i + 2])
+                            st.write("-----------------------------------------")
+                            ng = False
+                        else:
+                            st.write(sigla + " Inadimplência: " + array[i + 2])
+                            st.write("-----------------------------------------")
     with tab4:
         if st.button("Puxar Encargos"):
             array = puxarTextoEncargos(pdf_docs)

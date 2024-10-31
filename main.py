@@ -24,7 +24,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças"])
     with st.sidebar:
-        st.subheader("Version - 15.08.2024 14:47")
+        st.subheader("Version - 31.10.2024 11:06")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")
@@ -35,6 +35,9 @@ def main():
         naoAcrescenta = st.text_input("Mask Prova Real (Ex: 109/)", "")
         st.warning("Caso não puxe alguma informação alguma máscara pode estar errada!")
         if st.button("Puxar receitas"):
+
+            st.write("Total")
+            st.write("Acréscimo")
 
             totalAcres = 0
             totalAcresConc = ""
@@ -79,16 +82,16 @@ def main():
                             totalAcresConc = numero
                         else:
                             totalAcresConc += "+" + numero
-                        with tab1:
-                            st.write("Acrés./Desc: " + numero)
+                        
                 if array[i] == "Total:":
                     with tab1:
+                        if totalAcres != 0:
+                            totalAcres = round(totalAcres, 2)
+                            totalAcres = str(totalAcres).replace('.',',')
+                            st.code("=" + array[i + 1] + "-" + totalAcres, language="python")
                         if totalAcresConc != "":
                             st.code("=" + totalAcresConc, language="python")
                             totalAcresConc = ""
-                        st.write(array[i] + " " + array[i + 1])
-                        if totalAcres != 0:
-                            st.code("=" + array[i + 1] + "-" + str(totalAcres).replace('.',','), language="python")
                         totalAcres = 0
     with tab2:
         if st.button("Puxar Cobranças"):
@@ -112,7 +115,7 @@ def main():
                 
                 if array[i] == "Total":
                     with tab2:
-                        st.write("A vencer: " + array[i + 1])
+                        st.write(array[i + 1])
 
     with tab3:
         if st.button("Puxar Inadimplências"):
@@ -148,7 +151,7 @@ def main():
 
                 if array[i] == "inadimplentes" or array[i] == "inadimplente" or array[i] == "(0,00%)":
                     with tab3:
-                        st.write("Inadimplência: " + array[i + 2])
+                        st.write(array[i + 2])
 
     with tab4:
         if st.button("Puxar Encargos"):

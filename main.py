@@ -36,9 +36,6 @@ def main():
         st.warning("Caso não puxe alguma informação alguma máscara pode estar errada!")
         if st.button("Puxar receitas"):
 
-            st.write("Total")
-            st.write("Acréscimo")
-
             totalAcres = 0
             totalAcresConc = ""
             ng = False
@@ -89,6 +86,8 @@ def main():
                             totalAcres = round(totalAcres, 2)
                             totalAcres = str(totalAcres).replace('.',',')
                             st.code("=" + array[i + 1] + "-" + totalAcres, language="python")
+                        if totalAcres == 0:
+                            st.code("=" + array[i + 1], language="python")
                         if totalAcresConc != "":
                             st.code("=" + totalAcresConc, language="python")
                             totalAcresConc = ""

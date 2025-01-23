@@ -221,11 +221,12 @@ def main():
                         st.code(array[i + 1], language="python")
 
     with tab6:
+        mesValor = st.text_input("Mês", "")
+        anoValor = st.text_input("Ano", "")
         if st.button("Puxar notas"):
 
-            array = puxarTextoCenario(pdf_docs)
-            mesValor = st.text_input("Mês", "")
-            anoValor = st.text_input("Ano", "")
+            array = puxarTexto(pdf_docs)
+
 
             siglas = [
                 "ABA",

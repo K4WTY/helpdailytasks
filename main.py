@@ -276,17 +276,11 @@ def main():
                 if array[i] in siglas:
                     st.code("COND: " + array[i])
                     st.code(array[i + 1])
-                    st.code("")
                     st.code("SERVIÇOS DE COBRANÇA PRESTADOS EM " + mesValor + " " + anoValor + "5:")
                     st.code("ENCARGOS DE COBRANÇA ...................... " + array[i + 3])
                     st.code("TX. OPERACIONAL ........................... " + array[i + 2])
-                    st.code("")
                     st.code("Total: " + array[i + 4])
-                    st.code("")
-                    st.code("")
-                    st.code("")
-                    st.code("")
-                    st.code("")
+
 
 if __name__ == "__main__":
     main()

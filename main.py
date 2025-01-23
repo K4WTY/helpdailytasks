@@ -22,7 +22,7 @@ def puxarTexto(docs):
 
 def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
-    tab1, tab2, tab3, tab4, tab5 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio"])
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio", "Notas Fiscais"])
     with st.sidebar:
         st.subheader("Version - 31.10.2024 11:06")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
@@ -186,7 +186,7 @@ def main():
                         if array[i + 1] != "1.60.10":
                             st.write("Total: " + array[i + 1])
 
-        with tab5:
+    with tab5:
         if st.button("Puxar correio"):
 
             ng = False
@@ -219,6 +219,73 @@ def main():
                 if array[i] == "Contatos:":
                     with tab5:
                         st.code(array[i + 1], language="python")
+
+    with tab6:
+        if st.button("Puxar notas"):
+
+            array = puxarTextoCenario(pdf_docs)
+            mesValor = st.text_input("Mês", "")
+            anoValor = st.text_input("Ano", "")
+
+            siglas = [
+                "ABA",
+                "ACO",
+                "CAP",
+                "CEN",
+                "GLS",
+                "GAS",
+                "GRE",
+                "GRY",
+                "GTU",
+                "GBA",
+                "GUA",
+                "HTO",
+                "LHA",
+                "IVO",
+                "JAN",
+                "JDS",
+                "LEO",
+                "MEL",
+                "MAD",
+                "MCA",
+                "MAR",
+                "MTO",
+                "ODE",
+                "PAN",
+                "PDP",
+                "PSV",
+                "PRA",
+                "PDE",
+                "RAV",
+                "RAY",
+                "REI",
+                "SBA",
+                "EMI",
+                "SOL",
+                "TAR",
+                "TER",
+                "UBI",
+                "UNI",
+                "VIR",
+                "VFE",
+            ]
+
+
+            for i in range(len(array)):
+                if array[i] in siglas:
+                    st.code("COND: " + array[i])
+                    st.code(array[i + 1])
+                    st.code("")
+                    st.code("SERVIÇOS DE COBRANÇA PRESTADOS EM " + mesValor + " " + anoValor + "5:")
+                    st.code("ENCARGOS DE COBRANÇA ...................... " + array[i + 3])
+                    st.code("TX. OPERACIONAL ........................... " + array[i + 2])
+                    st.code("")
+                    st.code("Total: " + array[i + 4])
+                    st.code("")
+                    st.code("")
+                    st.code("")
+                    st.code("")
+                    st.code("")
 
 if __name__ == "__main__":
     main()

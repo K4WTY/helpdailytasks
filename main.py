@@ -22,7 +22,7 @@ def puxarTexto(docs):
 
 def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
-    tab1, tab2, tab3, tab4 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças"])
+    tab1, tab2, tab3, tab4, tab5 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio"])
     with st.sidebar:
         st.subheader("Version - 31.10.2024 11:06")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
@@ -185,6 +185,40 @@ def main():
                     with tab4:
                         if array[i + 1] != "1.60.10":
                             st.write("Total: " + array[i + 1])
+
+        with tab5:
+        if st.button("Puxar correio"):
+
+            ng = False
+            array = puxarTexto(pdf_docs)
+
+            for i in range(len(array)):
+
+                if array[i] == "Contatos":
+
+                    sigla = array[i - 1]
+
+                    if array[i - 1] == "(2NG)":
+                        sigla = array[i - 2]
+                    elif array[i - 1] == ")":
+                        sigla = array[i - 2] + ")"
+                    elif array[i - 1] == "2)":
+                        sigla = array[i - 2] + ")"
+
+                    for j in range(20):
+                        if array[i - j] == "NG" or array[i - j] == "2NG":
+                            ng = True
+                            break
+                    if ng:
+                        st.write(sigla + " (NG)")
+                    else:
+                        st.write(sigla)
+                    
+                    ng = False
+
+                if array[i] == "Contatos:":
+                    with tab5:
+                        st.code(array[i + 1], language="python")
 
 if __name__ == "__main__":
     main()

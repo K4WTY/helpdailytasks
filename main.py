@@ -24,7 +24,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio", "Notas Fiscais"])
     with st.sidebar:
-        st.subheader("Version - 31.10.2024 11:06")
+        st.subheader("Version - 27/02/25")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")
@@ -122,6 +122,7 @@ def main():
                 '(PAN)',
                 '(PDP)',
                 'PSV',
+                '(PDS)',
                 '(PRA)',
                 '(PDE)',
                 '(RAV)',
@@ -182,6 +183,7 @@ def main():
                 '(ODE)',
                 '(PDP)',
                 '(PSV)',
+                '(PDS)',
                 '(PDE)',
                 '(RAY)',
                 '(SOL)',
@@ -245,6 +247,7 @@ def main():
                 '(PAN)',
                 '(PDP)',
                 '(PSV)',
+                '(PDS)',
                 '(PRA)',
                 '(PDE)',
                 '(RAV)',
@@ -278,6 +281,7 @@ def main():
                 '(ODE) (NG)',
                 '(PDP) (NG)',
                 '(PSV) (NG)',
+                '(PDS) (NG)',
                 '(PDE) (NG)',
                 '(RAY) (NG)',
                 '(SOL) (NG)',
@@ -435,6 +439,7 @@ def main():
                 "PAN",
                 "PDP",
                 "PSV",
+                "PDS",
                 "PRA",
                 "PDE",
                 "RAV",

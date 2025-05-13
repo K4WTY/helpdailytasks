@@ -36,6 +36,96 @@ def main():
         st.warning("Caso não puxe alguma informação alguma máscara pode estar errada!")
         if st.button("Puxar receitas"):
 
+            # st.write(naoAcrescenta)
+
+            SIGLASITAU = [
+                '(ABA)',
+                '(CAP)',
+                '(CEN)',
+                '(GLS)',
+                '(GAS)',
+                '(GRE)',
+                '(GRY)',
+                '(GTU)',
+                '(GBA)',
+                '(GUA)',
+                '(HTO)',
+                '(LHA)',
+                '(IVO)',
+                '(JAN)',
+                '(JDS)',
+                '(MEL)',
+                '(MCA)',
+                '(MAR)',
+                '(ODE)',
+                '(PDP)',
+                '(PDS)',
+                '(PRA)',
+                '(PDE)',
+                '(RAV)',
+                '(RAY)',
+                '(SBA)',
+                '(SOL)',
+                '(TAR)',
+                '(TER)',
+                '(UBI)',
+                '(UNI)',
+                '(VIR)',
+                '(VFE)',
+                '(ABA) (NG)',
+                '(CAP) (NG)',
+                '(CEN) (NG)',
+                '(GLS) (NG)',
+                '(GAS) (NG)',
+                '(GRE) (NG)',
+                '(GRY) (NG)',
+                '(GTU) (NG)',
+                '(GBA) (NG)',
+                '(GUA) (NG)',
+                '(HTO) (NG)',
+                '(LHA) (NG)',
+                '(IVO) (NG)',
+                '(JAN) (NG)',
+                '(JDS) (NG)',
+                '(77) (NG)',
+                '(MCA) (NG)',
+                '(MAR) (NG)',
+                '(ODE) (NG)',
+                '(PDP) (NG)',
+                '(PDS) (NG)',
+                '(PRA) (NG)',
+                '(PDE) (NG)',
+                '(RAV) (NG)',
+                '(RAY) (NG)',
+                '(SBA) (NG)',
+                '(SOL) (NG)',
+                '(TAR) (NG)',
+                '(TER) (NG)',
+                '(UBI) (NG)',
+                '(UNI) (NG)',
+                '(VIR) (NG)',
+                '(VFE) (NG)',
+            ]
+
+            SIGLASSICREDI = [
+                '(PSV)',
+                '(REI)',
+                '(ACO)',
+                '(PAN)',
+                '(LEO)',
+                '(MTO)',
+                '(MAD)',
+                '(EMI)',
+                '(PSV) (NG)',
+                '(REI) (NG)',
+                '(ACO) (NG)',
+                '(PAN) (NG)',
+                '(LEO) (NG)',
+                '(MTO) (NG)',
+                '(MAD) (NG)',
+                '(EMI) (NG)',
+            ]
+                        
             totalAcres = 0
             totalAcresConc = ""
             ng = False
@@ -59,19 +149,26 @@ def main():
                             ng = True
                             break
                     
-                    st.write("-----------------------------------------")
+                    # st.write("-----------------------------------------")
+
                     if ng:
-                        st.write(sigla + " (NG)")
-                    else:
-                        st.write(sigla)
+                        sigla = sigla + " (NG)"
                     
                     ng = False
 
                 if array[i] == "mascaraManual":
+                    if naoAcrescenta == "109/" and sigla in SIGLASSICREDI:
+                        continue
+                    if naoAcrescenta == "25/" and sigla in SIGLASITAU:
+                        continue
                     with tab1:
                         original_title = '<p style="color:red; font-weight: bold;">' + ' Manual: ' + array[i + 2] + '</p>'
                         st.markdown(original_title, unsafe_allow_html=True)
                 if array[i] == "mascaraAcres":
+                    if naoAcrescenta == "109/" and sigla in SIGLASSICREDI:
+                        continue
+                    if naoAcrescenta == "25/" and sigla in SIGLASITAU:
+                        continue
                     numero = array[i + 3]
                     if array[i + 4] != "naoAcrescenta":
                         totalAcres = totalAcres + float(numero.replace('.','').replace(',','.'))
@@ -81,15 +178,19 @@ def main():
                             totalAcresConc += "+" + numero
                         
                 if array[i] == "Total:":
+                    if naoAcrescenta == "109/" and sigla in SIGLASSICREDI:
+                        continue
+                    if naoAcrescenta == "25/" and sigla in SIGLASITAU:
+                        continue
                     with tab1:
                         if totalAcres != 0:
                             totalAcres = round(totalAcres, 2)
                             totalAcres = str(totalAcres).replace('.',',')
-                            st.code("=" + array[i + 1] + "-" + totalAcres, language="python")
+                            st.code(sigla + ";;" + ";=" + array[i + 1] + "-" + totalAcres + ";Recebimento de Cobrança - Boleto Bancário", language="python")
                         if totalAcres == 0:
-                            st.code("=" + array[i + 1], language="python")
+                            st.code(sigla + ";;" + ";=" + array[i + 1] + ";Recebimento de Cobrança - Boleto Bancário", language="python")
                         if totalAcresConc != "":
-                            st.code("=" + totalAcresConc, language="python")
+                            st.code(sigla + ";;" + ";=" + totalAcresConc + ";Encargos s/ atrasos Recebimento de Cobrança - Boleto Bancário", language="python")
                             totalAcresConc = ""
                         totalAcres = 0
     with tab2:

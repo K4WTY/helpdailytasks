@@ -532,6 +532,7 @@ def main():
                 "JDS",
                 "LEO",
                 "MEL",
+                "LUA",
                 "MAD",
                 "MCA",
                 "MAR",
@@ -560,12 +561,15 @@ def main():
 
             for i in range(len(array)):
                 if array[i] in siglas:
+                    original_title = '<p style="color:red; font-weight: bold;">' + '---------------------------------------------------------------' + '</p>'
+                    st.markdown(original_title, unsafe_allow_html=True)
                     st.code("COND: " + array[i])
                     st.code(array[i + 1])
+                    st.code("Total: " + array[i + 4])
                     st.code("SERVIÇOS DE COBRANÇA PRESTADOS EM " + mesValor + " " + anoValor + ":")
                     st.code("ENCARGOS DE COBRANÇA ...................... " + array[i + 3])
                     st.code("TX. OPERACIONAL ........................... " + array[i + 2])
-                    st.code("Total: " + array[i + 4])
+                    
 
 
 if __name__ == "__main__":

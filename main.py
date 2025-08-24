@@ -2,13 +2,14 @@ import streamlit as st
 import re
 from utlis import text
 
-def puxarTextoReceitas(docs, maskAcres, maskManual, maskProvaReal):
+def puxarTextoReceitas(docs, maskAcres, maskManual):
     all_files_text = text.process_files(docs)
     all_files_text = re.sub("Total: 0,00", "", all_files_text)
     all_files_text = re.sub("CONDOMÍNIO", "naoAcrescenta", all_files_text)
     all_files_text = re.sub(maskAcres, " mascaraAcres", all_files_text)
     all_files_text = re.sub(maskManual, " mascaraManual", all_files_text)
-    all_files_text = re.sub(maskProvaReal, "naoAcrescenta ", all_files_text)
+    all_files_text = re.sub("109/", "naoAcrescenta ", all_files_text)
+    all_files_text = re.sub("25/", "naoAcrescenta ", all_files_text)
     return all_files_text.split()
 
 def puxarTextoEncargos(docs):
@@ -32,8 +33,8 @@ def main():
         st.image("./imgs/exemplo2.png")
         mascaraManual = st.text_input("Mask Manual (Ex: 08/24 M)", "")
         st.image("./imgs/exemplo3.png")
-        naoAcrescenta = st.text_input("Mask Prova Real (Ex: 109/ (ITAU)) (Ex: 25/ (SICREDI))", "")
-        st.warning("Caso não puxe alguma informação alguma máscara pode estar errada!")
+        #naoAcrescenta = st.text_input("Mask Prova Real (Ex: 109/ (ITAU)) (Ex: 25/ (SICREDI))", "")
+        #st.warning("Caso não puxe alguma informação alguma máscara pode estar errada!")
         if st.button("Puxar receitas"):
 
             # st.write(naoAcrescenta)
@@ -52,6 +53,7 @@ def main():
                 '(HTO)',
                 '(LHA)',
                 '(LUA)',
+                '(ICO)',
                 '(IVO)',
                 '(JAN)',
                 '(JDS)',
@@ -86,6 +88,7 @@ def main():
                 '(HTO) (NG)',
                 '(LHA) (NG)',
                 '(IVO) (NG)',
+                '(ICO) (NG)',
                 '(JAN) (NG)',
                 '(JDS) (NG)',
                 '(77) (NG)',
@@ -126,19 +129,334 @@ def main():
                 '(MAD) (NG)',
                 '(EMI) (NG)',
             ]
-                        
+
+            testeAutomatizarResumo = {
+                '(ACA)': '0',
+                '(AFA)': '0',
+                '(ARO)': '0',
+                '(BLU)': '0',
+                '(CMA)': '0',
+                '(CAR)': '0',
+                '(CAS)': '0',
+                '(DEZ)': '0',
+                '(FLS)': '0',
+                '(GNI)': '0',
+                '(ITA)': '0',
+                '(NAT)': '0',
+                '(NEU)': '0',
+                '(PNG)': '0',
+                '(RFA)': '0',
+                '(SAN)': '0',
+                '(TRI)': '0',
+                '(DIP)': '0',
+                '(JCK)': '0',
+                '(VZN)': '0',
+                '(JCK 2)': '0',
+                '(ARO NG)': '0',
+                '(CAR NG)': '0',
+                '(DEZ NG)': '0',
+                '(NEU NG)': '0',
+                '(GAP)': '0',
+                '(ABA)': '0',
+                '(ACO)': '0',
+                '(CAP)': '0',
+                '(CEN)': '0',
+                '(GLS)': '0',
+                '(GAS)': '0',
+                '(GRE)': '0',
+                '(GRY)': '0',
+                '(GTU)': '0',
+                '(GBA)': '0',
+                '(GUA)': '0',
+                '(HTO)': '0',
+                '(LHA)': '0',
+                '(ICO)': '0',
+                '(IVO)': '0',
+                '(JAN)': '0',
+                '(JDS)': '0',
+                '(LEO)': '0',
+                '(MEL)': '0',
+                '(LUA)': '0',
+                '(MAD)': '0',
+                '(MCA)': '0',
+                '(MAR)': '0',
+                '(MTO)': '0',
+                '(ODE)': '0',
+                '(PAN)': '0',
+                '(PDP)': '0',
+                '(PSV)': '0',
+                '(PDS)': '0',
+                '(PRA)': '0',
+                '(PDE)': '0',
+                '(RAV)': '0',
+                '(RAY)': '0',
+                '(REI)': '0',
+                '(SBA)': '0',
+                '(EMI)': '0',
+                '(SOL)': '0',
+                '(TAR)': '0',
+                '(TER)': '0',
+                '(UBI)': '0',
+                '(UNI)': '0',
+                '(VIR)': '0',
+                '(VFE)': '0',
+                '(ABA) (NG)': '0',
+                '(ACO) (NG)': '0',
+                '(CAP) (NG)': '0',
+                '(CEN) (NG)': '0',
+                '(GLS) (NG)': '0',
+                '(GAS) (NG)': '0',
+                '(GRE) (NG)': '0',
+                '(GRY) (NG)': '0',
+                '(GTU) (NG)': '0',
+                '(ICO) (NG)': '0',
+                '(IVO) (NG)': '0',
+                '(JAN) (NG)': '0',
+                '(77) (NG)': '0',
+                '(MTO) (NG)': '0',
+                '(ODE) (NG)': '0',
+                '(PDP) (NG)': '0',
+                '(PSV) (NG)': '0',
+                '(PDS) (NG)': '0',
+                '(PDE) (NG)': '0',
+                '(RAY) (NG)': '0',
+                '(SOL) (NG)': '0',
+                '(UBI) (NG)': '0',
+                '(UNI) (NG)': '0',
+                '(VFE) (NG)': '0'
+            }
+
+            testeAutomatizarResumoExtra = {
+                '(ACA)': '0',
+                '(AFA)': '0',
+                '(ARO)': '0',
+                '(BLU)': '0',
+                '(CMA)': '0',
+                '(CAR)': '0',
+                '(CAS)': '0',
+                '(DEZ)': '0',
+                '(FLS)': '0',
+                '(GNI)': '0',
+                '(ITA)': '0',
+                '(NAT)': '0',
+                '(NEU)': '0',
+                '(PNG)': '0',
+                '(RFA)': '0',
+                '(SAN)': '0',
+                '(TRI)': '0',
+                '(DIP)': '0',
+                '(JCK)': '0',
+                '(VZN)': '0',
+                '(JCK 2)': '0',
+                '(ARO) (NG)': '0',
+                '(CAR) (NG)': '0',
+                '(DEZ) (NG)': '0',
+                '(NEU) (NG)': '0',
+                '(ABA)': '0',
+                '(ACO)': '0',
+                '(CAP)': '0',
+                '(CEN)': '0',
+                '(GLS)': '0',
+                '(GAS)': '0',
+                '(GRE)': '0',
+                '(GRY)': '0',
+                '(GTU)': '0',
+                '(GBA)': '0',
+                '(GUA)': '0',
+                '(HTO)': '0',
+                '(LHA)': '0',
+                '(ICO)': '0',
+                '(IVO)': '0',
+                '(JAN)': '0',
+                '(JDS)': '0',
+                '(LEO)': '0',
+                '(MEL)': '0',
+                '(LUA)': '0',
+                '(MAD)': '0',
+                '(MCA)': '0',
+                '(MAR)': '0',
+                '(MTO)': '0',
+                '(ODE)': '0',
+                '(PAN)': '0',
+                '(PDP)': '0',
+                '(PSV)': '0',
+                '(PDS)': '0',
+                '(PRA)': '0',
+                '(PDE)': '0',
+                '(RAV)': '0',
+                '(RAY)': '0',
+                '(REI)': '0',
+                '(SBA)': '0',
+                '(EMI)': '0',
+                '(SOL)': '0',
+                '(TAR)': '0',
+                '(TER)': '0',
+                '(UBI)': '0',
+                '(UNI)': '0',
+                '(VIR)': '0',
+                '(VFE)': '0',
+                '(ABA) (NG)': '0', # TA 
+                '(ACO) (NG)': '0', # TA 
+                '(CAP) (NG)': '0', # TA 
+                '(CEN) (NG)': '0', # TA 
+                '(GLS) (NG)': '0', # TA 
+                '(GAS) (NG)': '0', # TA 
+                '(GRE) (NG)': '0', # TA 
+                '(GRY) (NG)': '0', # TA 
+                '(GTU) (NG)': '0', # TA 
+                '(ICO) (NG)': '0', # TA 
+                '(IVO) (NG)': '0', # TA 
+                '(JAN) (NG)': '0', # TA 
+                '(77) (NG)': '0', # TA 
+                '(MTO) (NG)': '0', # TA 
+                '(ODE) (NG)': '0', # TA 
+                '(PDP) (NG)': '0', # TA 
+                '(PSV) (NG)': '0', # TA 
+                '(PDS) (NG)': '0', # TA 
+                '(PDE) (NG)': '0', # TA 
+                '(RAY) (NG)': '0', # TA 
+                '(SOL) (NG)': '0', # TA 
+                '(UBI) (NG)': '0', # TA 
+                '(UNI) (NG)': '0', # TA 
+                '(VFE) (NG)': '0' # TA 
+            }
+
+            renomearSiglas = {
+                '(ACA)': 'ACÁCIAS',
+                '(AFA)': 'ANGELO FATTORI', 
+                '(ARO)': 'ANTONIO ROHN', # TA
+                '(BLU)': 'BRUNO DE LUCCA', # TA
+                '(CMA)': 'CARIN A MATEUSE', # TA 
+                '(CAR)': 'CAROLINA', # TA
+                '(CAS)': 'CASTRO', # TA
+                '(DEZ)': 'DEZZMAI', # TA
+                '(FLS)': 'FLOR DA SÍRIA',
+                '(GNI)': 'O GUARANI', # TA
+                '(ITA)': 'ITAMAMBUCA', # TA
+                '(NAT)': 'NATÁLIA', # TA 
+                '(NEU)': 'NOVA EUROPA ', # TA 
+                '(PNG)': 'PONGAÍ', # TA
+                '(RFA)': 'ROBERTO FADEL', # TA
+                '(SAN)': 'SANTO ANTONIO', # TA
+                '(TRI)': 'TRIANON', # TA
+                '(DIP)': 'VILLAGIO DI PARMA', # TA
+                '(JCK)': 'VILLAGIO DO JOCKEY', # TA 
+                '(VZN)': 'VENEZA',
+                '(JCK 2)': 'VILLAGIO DO JOCKEY JURÍDICO', # TA
+                '(ARO) (NG)': 'ANTONIO ROHN (NG)', # TA
+                '(CAR) (NG)': 'CAROLINA (NG)', # TA 
+                '(DEZ) (NG)': 'DEZZMAI (NG)', # TA
+                '(NEU) (NG)': 'NOVA EUROPA (NG)', # TA 
+                '(ABA)': 'ABAETE', # TA 
+                '(ACO)': 'ACAPULCO', # TA 
+                '(CAP)': 'CAPRI', # TA 
+                '(CEN)': 'CENÁRIO',
+                '(GLS)': 'GALASSI', # TA
+                '(GAS)': 'GASPAR',
+                '(GRE)': 'GRÉCIA', # TA 
+                '(GRY)': 'GRYGOR', # TA 
+                '(GTU)': 'GUARATUBA', # TA
+                '(GBA)': 'GUARIBA', # TA 
+                '(GUA)': 'GUARINI',
+                '(HTO)': 'HORTO', # TA 
+                '(LHA)': 'ITARUÇUCA', # TA 
+                '(ICO)': 'ÍNDICO', # TA
+                '(IVO)': 'IVONE', # TA 
+                '(JAN)': 'JANAINA',
+                '(JDS)': 'JOÃO DE SOUZA', # TA
+                '(LEO)': 'LEON', # TA
+                '(MEL)': 'LUA DE MEL', # TA
+                '(LUA)': 'LUARA', # TA 
+                '(MAD)': 'MADRI', # TA 
+                '(MCA)': 'MANACA', # TA 
+                '(MAR)': 'MARACANÃ', # TA 
+                '(MTO)': 'MARALTO', # TA 
+                '(ODE)': 'ODETE', # TA 
+                '(PAN)': 'PANORAMA', # TA
+                '(PDP)': 'PARQUE DA PRAIA', # TA 
+                '(PSV)': 'PARQUE SÃO VICENTE', # TA
+                '(PDS)': 'PORTAL DO SOL', # TA 
+                '(PRA)': 'PRADO', # TA 
+                '(PDE)': 'PUNTA DEL ESTE', # TA 
+                '(RAV)': 'RAVENA', # TA
+                '(RAY)': 'RAYRA', # TA 
+                '(REI)': 'REI DAVID', # TA 
+                '(SBA)': 'SANTA BÁRBARA', # TA
+                '(EMI)': 'SANTO EMÍLIO', # TA 
+                '(SOL)': 'SOL NASCENTE',
+                '(TAR)': 'TARSILA', 
+                '(TER)': 'TERRACE', # TA 
+                '(UBI)': 'UBIRAJARA', # TA 
+                '(UNI)': 'UNIQUE', # TA
+                '(VIR)': 'VIRGINIA', # TA
+                '(VFE)': 'VIVA FELIZ', # TA 
+                '(ABA) (NG)': 'ABAETE (NG)',
+                '(ACO) (NG)': 'ACAPULCO (NG)',
+                '(CAP) (NG)': 'CAPRI (NG)',
+                '(CEN) (NG)': 'CENÁRIO (NG)',
+                '(GLS) (NG)': 'GALASSI (NG)',
+                '(GAS) (NG)': 'GASPAR (NG)',
+                '(GRE) (NG)': 'GRÉCIA (NG)',
+                '(GRY) (NG)': 'GRYGOR (NG)',
+                '(GTU) (NG)': 'GUARATUBA (NG)',
+                '(GBA) (NG)': 'GUARIBA (NG)',
+                '(GUA) (NG)': 'GUARINI (NG)',
+                '(HTO) (NG)': 'HORTO (NG)',
+                '(LHA) (NG)': 'ITARUÇUCA (NG)',
+                '(ICO) (NG)': 'ÍNDICO (NG)',
+                '(IVO) (NG)': 'IVONE (NG)',
+                '(JAN) (NG)': 'JANAINA (NG)',
+                '(JDS) (NG)': 'JOÃO DE SOUZA (NG)',
+                '(LEO) (NG)': 'LEON (NG)',
+                '(77) (NG)': 'LUA DE MEL (NG)',
+                '(LUA) (NG)': 'LUARA (NG)',
+                '(MAD) (NG)': 'MADRI (NG)',
+                '(MCA) (NG)': 'MANACA (NG)',
+                '(MAR) (NG)': 'MARACANÃ (NG)',
+                '(MTO) (NG)': 'MARALTO (NG)',
+                '(ODE) (NG)': 'ODETE (NG)',
+                '(PAN) (NG)': 'PANORAMA (NG)',
+                '(PDP) (NG)': 'PARQUE DA PRAIA (NG)',
+                '(PSV) (NG)': 'PARQUE SÃO VICENTE (NG)',
+                '(PDS) (NG)': 'PORTAL DO SOL (NG)',
+                '(PRA) (NG)': 'PRADO (NG)',
+                '(PDE) (NG)': 'PUNTA DEL ESTE (NG)',
+                '(RAV) (NG)': 'RAVENA (NG)',
+                '(RAY) (NG)': 'RAYRA (NG)',
+                '(REI) (NG)': 'REI DAVID (NG)',
+                '(SBA) (NG)': 'SANTA BÁRBARA (NG)',
+                '(EMI) (NG)': 'SANTO EMÍLIO (NG)',
+                '(SOL) (NG)': 'SOL NASCENTE (NG)',
+                '(TAR) (NG)': 'TARSILA (NG)',
+                '(TER) (NG)': 'TERRACE (NG)',
+                '(UBI) (NG)': 'UBIRAJARA (NG)',
+                '(UNI) (NG)': 'UNIQUE (NG)',
+                '(VIR) (NG)': 'VIRGINIA (NG)',
+                '(VFE) (NG)': 'VIVA FELIZ (NG)',
+            }
+            
+            sicredCondominios = []
+
             totalAcres = 0
+            valorManual = 0
+            valorManuelConc = ""
             totalAcresConc = ""
             ng = False
-            array = puxarTextoReceitas(pdf_docs, mascaraAcres, mascaraManual, naoAcrescenta)
-
+            guardarCond = False
+            array = puxarTextoReceitas(pdf_docs, mascaraAcres, mascaraManual)
+            print(array)
             for i in range(len(array)):
 
                 if array[i] == "Receitas":
 
                     sigla = array[i - 1]
 
-                    if array[i - 1] == "(2NG)":
+                    
+                    
+
+                    if array[i - 1] == "2)" and array[i - 2] == "(JCK":
+                        sigla = "(JCK 2)"
+                    elif array[i - 1] == "(2NG)":
                         sigla = array[i - 2]
                     elif array[i - 1] == ")":
                         sigla = array[i - 2] + ")"
@@ -150,26 +468,21 @@ def main():
                             ng = True
                             break
                     
-                    # st.write("-----------------------------------------")
-
                     if ng:
                         sigla = sigla + " (NG)"
                     
+                    #print(sigla)
+                
                     ng = False
 
                 if array[i] == "mascaraManual":
-                    if naoAcrescenta == "109/" and sigla in SIGLASSICREDI:
-                        continue
-                    if naoAcrescenta == "25/" and sigla in SIGLASITAU:
-                        continue
-                    with tab1:
-                        original_title = '<p style="color:red; font-weight: bold;">' + ' Manual: ' + array[i + 2] + '</p>'
-                        st.markdown(original_title, unsafe_allow_html=True)
+                    valorManual = "-" + array[i + 2].replace('.','')
+                    if valorManuelConc == "":
+                        valorManuelConc = valorManual
+                    else:
+                        valorManuelConc += valorManual
+                        
                 if array[i] == "mascaraAcres":
-                    if naoAcrescenta == "109/" and sigla in SIGLASSICREDI:
-                        continue
-                    if naoAcrescenta == "25/" and sigla in SIGLASITAU:
-                        continue
                     numero = array[i + 3]
                     if array[i + 4] != "naoAcrescenta":
                         totalAcres = totalAcres + float(numero.replace('.','').replace(',','.'))
@@ -179,25 +492,118 @@ def main():
                             totalAcresConc += "+" + numero
                         
                 if array[i] == "Total:":
-                    if naoAcrescenta == "109/" and sigla in SIGLASSICREDI:
-                        continue
-                    if naoAcrescenta == "25/" and sigla in SIGLASITAU:
-                        continue
                     with tab1:
                         if totalAcres != 0:
                             totalAcres = round(totalAcres, 2)
                             totalAcres = str(totalAcres).replace('.',',')
-                            st.code(sigla + ";;" + ";=" + array[i + 1] + "-" + totalAcres + ";Recebimento de Cobrança - Boleto Bancário", language="python")
+
+                            if valorManual != 0:
+                                testeAutomatizarResumo[sigla] = array[i + 1].replace('.','') + "-" + totalAcres + valorManuelConc
+                            else:
+                                testeAutomatizarResumo[sigla] = array[i + 1].replace('.','') + "-" + totalAcres
+
                         if totalAcres == 0:
-                            st.code(sigla + ";;" + ";=" + array[i + 1] + ";Recebimento de Cobrança - Boleto Bancário", language="python")
+                            if valorManual != 0:
+                                testeAutomatizarResumo[sigla] = array[i + 1].replace('.','') + valorManuelConc
+                            else:
+                                testeAutomatizarResumo[sigla] = array[i + 1].replace('.','')
+                        if totalAcresConc != "":
+                            if valorManual != 0:
+                                testeAutomatizarResumoExtra[sigla] =  totalAcresConc + valorManuelConc
+                            else:
+                                testeAutomatizarResumoExtra[sigla] =  totalAcresConc
+
+                        if sigla in SIGLASSICREDI:
+                            guardarCond = True
+
+                        for key, value in renomearSiglas.items():
+                            if sigla == key:
+                                sigla = value
+                                break
+
+                        if guardarCond:
+                            if totalAcres != 0:
+                                if valorManual != 0:
+                                    sicredCondominios.append(sigla + ";;" + ";=" + array[i + 1].replace('.','') + "-" + totalAcres + valorManuelConc + ";Recebimento de Cobrança - Boleto Bancário")
+                                else:
+                                    sicredCondominios.append(sigla + ";;" + ";=" + array[i + 1].replace('.','') + "-" + totalAcres + ";Recebimento de Cobrança - Boleto Bancário")
+                                
+                            if totalAcres == 0:
+                                if valorManual != 0:
+                                    sicredCondominios.append(sigla + ";;" + ";=" + array[i + 1].replace('.','') + valorManuelConc + ";Recebimento de Cobrança - Boleto Bancário")
+                                else:
+                                    sicredCondominios.append(sigla + ";;" + ";=" + array[i + 1].replace('.','') + ";Recebimento de Cobrança - Boleto Bancário")
+                                
+                            if totalAcresConc != "":
+                                sicredCondominios.append(sigla + ";;" + ";=" + totalAcresConc + ";Encargos s/ atrasos Recebimento de Cobrança - Boleto Bancário")
+                                totalAcresConc = ""
+                            
+                            guardarCond = False
+                            totalAcres = 0
+                            valorManual = 0
+                            valorManuelConc = ""
+                            continue
+
+                        if totalAcres != 0:
+                            if valorManual != 0:
+                                st.code(sigla + ";;" + ";=" + array[i + 1].replace('.','') + "-" + totalAcres + valorManuelConc + ";Recebimento de Cobrança - Boleto Bancário", language="python")
+                            else:
+                                st.code(sigla + ";;" + ";=" + array[i + 1].replace('.','') + "-" + totalAcres + ";Recebimento de Cobrança - Boleto Bancário", language="python")
+                            
+                        if totalAcres == 0:
+                            if valorManual != 0:
+                                st.code(sigla + ";;" + ";=" + array[i + 1].replace('.','') + valorManuelConc + ";Recebimento de Cobrança - Boleto Bancário", language="python")
+                            else:
+                                st.code(sigla + ";;" + ";=" + array[i + 1].replace('.','') + ";Recebimento de Cobrança - Boleto Bancário", language="python")
+                            
                         if totalAcresConc != "":
                             st.code(sigla + ";;" + ";=" + totalAcresConc + ";Encargos s/ atrasos Recebimento de Cobrança - Boleto Bancário", language="python")
                             totalAcresConc = ""
+
                         totalAcres = 0
+                        valorManual = 0
+                        valorManuelConc = ""
+
+            original_title = '<p style="color:red; font-weight: bold;">' + 'SICREDI Condomínios:' + '</p>'
+            st.markdown(original_title, unsafe_allow_html=True)
+
+            for i in range(len(sicredCondominios)):
+                st.code(sicredCondominios[i], language="python")
+            
+            st.write("---------------------------------------------------------------")
+            st.write("Receitas para automatizar resumo principal:")
+            for key, value in testeAutomatizarResumo.items():
+                st.code("=" + value, language="python")
+
+            st.write("---------------------------------------------------------------")
+            st.write("Receitas para automatizar resumo juros:")
+            for key, value in testeAutomatizarResumoExtra.items():
+                st.code("=" + value, language="python")
     with tab2:
         if st.button("Puxar Cobranças G"):
 
             siglasGarantidasCobrancas = [
+                '(ACA)',
+                '(AFA)', 
+                '(ARO)', # TA
+                '(BLU)', # TA
+                '(CMA)', # TA 
+                '(CAR)', # TA
+                '(CAS)', # TA
+                '(DEZ)', # TA
+                '(FLS)',
+                '(GNI)', # TA
+                '(ITA)', # TA
+                '(NAT)', # TA 
+                '(NEU)', # TA 
+                '(PNG)', # TA
+                '(RFA)', # TA
+                '(SAN)', # TA
+                '(TRI)', # TA
+                '(DIP)', # TA
+                '(JCK)', # TA 
+                '(VNZ)',
+                '(JCK 2)', # TA
                 '(ABA)',
                 '(ACO)',
                 '(CAP)',
@@ -211,6 +617,7 @@ def main():
                 '(GUA)',
                 '(HTO)',
                 '(LHA)',
+                '(ICO)',
                 '(IVO)',
                 '(JAN',
                 '(JDS)',
@@ -251,12 +658,17 @@ def main():
                     
                     sigla = array[i - 1]
 
-                    if array[i - 1] == "(2NG)":
+                    if array[i - 1] == "2)" and array[i - 2] == "(JCK":
+                        sigla = "(JCK 2)"
+                    elif array[i - 1] == "(2NG)":
                         sigla = array[i - 2]
                     elif array[i - 1] == ")":
                         sigla = array[i - 2] + ")"
                     elif array[i - 1] == "2)":
                         sigla = array[i - 2] + ")"
+
+                    if sigla in cobrancas:
+                        sigla = "(JCK 2)"
 
                     cobrancas |= {sigla: 0}
 
@@ -270,6 +682,10 @@ def main():
         if st.button("Puxar Cobranças NG"):
                     
             siglasNaoGarantidasCobrancas = [
+                '(ARO)', # TA
+                '(CAR)', # TA 
+                '(DEZ)', # TA
+                '(NEU)', # TA 
                 '(ABA)',
                 '(ACO)',
                 '(CAP)',
@@ -279,6 +695,7 @@ def main():
                 '(GRE)',
                 '(GRY)',
                 '(GTU)',
+                '(ICO)',
                 '(IVO)',
                 '(JAN)',
                 '(MEL)',
@@ -324,6 +741,27 @@ def main():
         if st.button("Puxar Inadimplências"):
             
             siglasGarantidasInads = [
+                '(ACA)',
+                '(AFA)', 
+                '(ARO)', # TA
+                '(BLU)', # TA
+                '(CMA)', # TA 
+                '(CAR)', # TA
+                '(CAS)', # TA
+                '(DEZ)', # TA
+                '(FLS)',
+                '(GNI)', # TA
+                '(ITA)', # TA
+                '(NAT)', # TA 
+                '(NEU)', # TA 
+                '(PNG)', # TA
+                '(RFA)', # TA
+                '(SAN)', # TA
+                '(TRI)', # TA
+                '(DIP)', # TA
+                '(JCK)', # TA 
+                '(VZN)',
+                '(JCK 2)', # TA
                 '(ABA)',
                 '(ACO)',
                 '(CAP)',
@@ -337,6 +775,7 @@ def main():
                 '(GUA)',
                 '(HTO)',
                 '(LHA)',
+                '(ICO)',
                 '(IVO)',
                 '(JAN)',
                 '(JDS)',
@@ -369,6 +808,10 @@ def main():
             ]
 
             siglasNaoGarantidasInads = [
+                '(ARO) (NG)', # TA
+                '(CAR) (NG)', # TA 
+                '(DEZ) (NG)', # TA
+                '(NEU) (NG)', # TA 
                 '(ABA) (NG)',
                 '(ACO) (NG)',
                 '(CAP) (NG)',
@@ -378,6 +821,7 @@ def main():
                 '(GRE) (NG)',
                 '(GRY) (NG)',
                 '(GTU) (NG)',
+                '(ICO) (NG)',
                 '(IVO) (NG)',
                 '(JAN) (NG)',
                 '(77) (NG)',
@@ -404,7 +848,9 @@ def main():
                         
                     sigla = array[i - 1]
 
-                    if array[i - 1] == "(2NG)":
+                    if array[i - 1] == "2)" and array[i - 2] == "(JCK":
+                        sigla = "(JCK 2)"
+                    elif array[i - 1] == "(2NG)":
                         sigla = array[i - 2]
                     elif array[i - 1] == ")":
                         sigla = array[i - 2] + ")"
@@ -418,9 +864,11 @@ def main():
 
                     if ng:
                         sigla = sigla + " (NG)"
+
+                
                     
                 if array[i] == "inadimplentes" or array[i] == "inadimplente" or array[i] == "(0,00%)":
-                    if array[i + 2] == "W002B" or array[i + 2] == "CONDOMÍNIO":
+                    if array[i + 2] == "W002B" or array[i + 2] == "CONDOMÍNIO" or array[i + 2] == "CONDOMINIO":
                         inads |= {sigla: 0}
                     else:
                         inads |= {sigla: array[i + 2]}
@@ -557,8 +1005,10 @@ def main():
                 "TER",
                 "UBI",
                 "UNI",
-                "VIR",
                 "VFE",
+                "VIR",
+                "ICO"
+                
             ]
 
 

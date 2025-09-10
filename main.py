@@ -25,7 +25,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio", "Notas Fiscais"])
     with st.sidebar:
-        st.subheader("Version - 27/02/25")
+        st.subheader("Version - 10/09/2025")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")
@@ -152,10 +152,10 @@ def main():
                 '(JCK)': '0',
                 '(VZN)': '0',
                 '(JCK 2)': '0',
-                '(ARO NG)': '0',
-                '(CAR NG)': '0',
-                '(DEZ NG)': '0',
-                '(NEU NG)': '0',
+                '(ARO) (NG)': '0',
+                '(CAR) (NG)': '0',
+                '(DEZ) (NG)': '0',
+                '(NEU) (NG)': '0',
                 '(GAP)': '0',
                 '(ABA)': '0',
                 '(ACO)': '0',
@@ -508,9 +508,6 @@ def main():
                             else:
                                 testeAutomatizarResumo[sigla] = array[i + 1].replace('.','')
                         if totalAcresConc != "":
-                            if valorManual != 0:
-                                testeAutomatizarResumoExtra[sigla] =  totalAcresConc + valorManuelConc
-                            else:
                                 testeAutomatizarResumoExtra[sigla] =  totalAcresConc
 
                         if sigla in SIGLASSICREDI:
@@ -1027,5 +1024,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 

@@ -144,6 +144,7 @@ def main():
                 '(ITA)': '0',
                 '(NAT)': '0',
                 '(NEU)': '0',
+                '(ORQ)': '0',
                 '(PNG)': '0',
                 '(RFA)': '0',
                 '(SAN)': '0',
@@ -240,6 +241,7 @@ def main():
                 '(ITA)': '0',
                 '(NAT)': '0',
                 '(NEU)': '0',
+                '(ORQ)': '0',
                 '(PNG)': '0',
                 '(RFA)': '0',
                 '(SAN)': '0',
@@ -335,6 +337,7 @@ def main():
                 '(ITA)': 'ITAMAMBUCA', # TA
                 '(NAT)': 'NATÁLIA', # TA 
                 '(NEU)': 'NOVA EUROPA ', # TA 
+                '(ORQ)': 'ORQUÍDEAS ', # TA 
                 '(PNG)': 'PONGAÍ', # TA
                 '(RFA)': 'ROBERTO FADEL', # TA
                 '(SAN)': 'SANTO ANTONIO', # TA
@@ -593,6 +596,7 @@ def main():
                 '(ITA)', # TA
                 '(NAT)', # TA 
                 '(NEU)', # TA 
+                '(ORQ)', # TA 
                 '(PNG)', # TA
                 '(RFA)', # TA
                 '(SAN)', # TA
@@ -751,6 +755,7 @@ def main():
                 '(ITA)', # TA
                 '(NAT)', # TA 
                 '(NEU)', # TA 
+                '(ORQ)', # TA 
                 '(PNG)', # TA
                 '(RFA)', # TA
                 '(SAN)', # TA
@@ -1024,6 +1029,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 

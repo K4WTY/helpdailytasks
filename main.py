@@ -25,7 +25,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio", "Notas Fiscais"])
     with st.sidebar:
-        st.subheader("Version - 10/09/2025")
+        st.subheader("Version - 19/09/2025")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")
@@ -524,18 +524,18 @@ def main():
                         if guardarCond:
                             if totalAcres != 0:
                                 if valorManual != 0:
-                                    sicredCondominios.append(sigla + ";;" + ";=" + array[i + 1].replace('.','') + "-" + totalAcres + valorManuelConc + ";Recebimento de Cobrança - Boleto Bancário")
+                                    sicredCondominios.append(sigla + ";;" + ";=" + array[i + 1].replace('.','') + "-" + totalAcres + valorManuelConc + ";;Recebimento de Cobrança - Boleto Bancário")
                                 else:
-                                    sicredCondominios.append(sigla + ";;" + ";=" + array[i + 1].replace('.','') + "-" + totalAcres + ";Recebimento de Cobrança - Boleto Bancário")
+                                    sicredCondominios.append(sigla + ";;" + ";=" + array[i + 1].replace('.','') + "-" + totalAcres + ";;Recebimento de Cobrança - Boleto Bancário")
                                 
                             if totalAcres == 0:
                                 if valorManual != 0:
-                                    sicredCondominios.append(sigla + ";;" + ";=" + array[i + 1].replace('.','') + valorManuelConc + ";Recebimento de Cobrança - Boleto Bancário")
+                                    sicredCondominios.append(sigla + ";;" + ";=" + array[i + 1].replace('.','') + valorManuelConc + ";;Recebimento de Cobrança - Boleto Bancário")
                                 else:
-                                    sicredCondominios.append(sigla + ";;" + ";=" + array[i + 1].replace('.','') + ";Recebimento de Cobrança - Boleto Bancário")
+                                    sicredCondominios.append(sigla + ";;" + ";=" + array[i + 1].replace('.','') + ";;Recebimento de Cobrança - Boleto Bancário")
                                 
                             if totalAcresConc != "":
-                                sicredCondominios.append(sigla + ";;" + ";=" + totalAcresConc + ";Encargos s/ atrasos Recebimento de Cobrança - Boleto Bancário")
+                                sicredCondominios.append(sigla + ";;" + ";=" + totalAcresConc + ";;Encargos s/ atrasos Recebimento de Cobrança - Boleto Bancário")
                                 totalAcresConc = ""
                             
                             guardarCond = False
@@ -546,18 +546,18 @@ def main():
 
                         if totalAcres != 0:
                             if valorManual != 0:
-                                st.code(sigla + ";;" + ";=" + array[i + 1].replace('.','') + "-" + totalAcres + valorManuelConc + ";Recebimento de Cobrança - Boleto Bancário", language="python")
+                                st.code(sigla + ";;" + ";=" + array[i + 1].replace('.','') + "-" + totalAcres + valorManuelConc + ";;Recebimento de Cobrança - Boleto Bancário", language="python")
                             else:
-                                st.code(sigla + ";;" + ";=" + array[i + 1].replace('.','') + "-" + totalAcres + ";Recebimento de Cobrança - Boleto Bancário", language="python")
+                                st.code(sigla + ";;" + ";=" + array[i + 1].replace('.','') + "-" + totalAcres + ";;Recebimento de Cobrança - Boleto Bancário", language="python")
                             
                         if totalAcres == 0:
                             if valorManual != 0:
-                                st.code(sigla + ";;" + ";=" + array[i + 1].replace('.','') + valorManuelConc + ";Recebimento de Cobrança - Boleto Bancário", language="python")
+                                st.code(sigla + ";;" + ";=" + array[i + 1].replace('.','') + valorManuelConc + ";;Recebimento de Cobrança - Boleto Bancário", language="python")
                             else:
-                                st.code(sigla + ";;" + ";=" + array[i + 1].replace('.','') + ";Recebimento de Cobrança - Boleto Bancário", language="python")
+                                st.code(sigla + ";;" + ";=" + array[i + 1].replace('.','') + ";;Recebimento de Cobrança - Boleto Bancário", language="python")
                             
                         if totalAcresConc != "":
-                            st.code(sigla + ";;" + ";=" + totalAcresConc + ";Encargos s/ atrasos Recebimento de Cobrança - Boleto Bancário", language="python")
+                            st.code(sigla + ";;" + ";=" + totalAcresConc + ";;Encargos s/ atrasos Recebimento de Cobrança - Boleto Bancário", language="python")
                             totalAcresConc = ""
 
                         totalAcres = 0
@@ -1029,6 +1029,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 

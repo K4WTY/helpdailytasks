@@ -9,7 +9,7 @@ def puxarTextoReceitas(docs, maskAcres, maskManual):
     all_files_text = re.sub(maskAcres, " mascaraAcres", all_files_text)
     all_files_text = re.sub(maskManual, " mascaraManual", all_files_text)
     all_files_text = re.sub("109/", "naoAcrescenta ", all_files_text)
-    all_files_text = re.sub("25/", "naoAcrescenta ", all_files_text)
+    #all_files_text = re.sub("25/", "naoAcrescenta ", all_files_text)
     return all_files_text.split()
 
 def puxarTextoEncargos(docs):
@@ -1029,6 +1029,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 

@@ -160,6 +160,7 @@ def main():
                 '(GAP)': '0',
                 '(ABA)': '0',
                 '(ACO)': '0',
+                '(BRO)': '0',
                 '(CAP)': '0',
                 '(CEN)': '0',
                 '(GLS)': '0',
@@ -256,6 +257,7 @@ def main():
                 '(NEU) (NG)': '0',
                 '(ABA)': '0',
                 '(ACO)': '0',
+                '(BRO)': '0',
                 '(CAP)': '0',
                 '(CEN)': '0',
                 '(GLS)': '0',
@@ -352,6 +354,7 @@ def main():
                 '(NEU) (NG)': 'NOVA EUROPA (NG)', # TA 
                 '(ABA)': 'ABAETE', # TA 
                 '(ACO)': 'ACAPULCO', # TA 
+                '(BRO)': 'BROMÉLIA', # TA 
                 '(CAP)': 'CAPRI', # TA 
                 '(CEN)': 'CENÁRIO',
                 '(GLS)': 'GALASSI', # TA
@@ -607,6 +610,7 @@ def main():
                 '(JCK 2)', # TA
                 '(ABA)',
                 '(ACO)',
+                '(BRO)',
                 '(CAP)',
                 '(CEN)',
                 '(GLS)',
@@ -766,6 +770,7 @@ def main():
                 '(JCK 2)', # TA
                 '(ABA)',
                 '(ACO)',
+                '(BRO)',
                 '(CAP)',
                 '(CEN)',
                 '(GLS)',
@@ -969,6 +974,7 @@ def main():
             siglas = [
                 "ABA",
                 "ACO",
+                "BRO",
                 "CAP",
                 "CEN",
                 "GLS",
@@ -1029,6 +1035,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 

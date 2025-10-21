@@ -25,7 +25,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio", "Notas Fiscais"])
     with st.sidebar:
-        st.subheader("Version - 19/09/2025")
+        st.subheader("Version - 21/10/2025")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")
@@ -196,6 +196,7 @@ def main():
                 '(SBA)': '0',
                 '(EMI)': '0',
                 '(SOL)': '0',
+                '(TAI)': '0',
                 '(TAR)': '0',
                 '(TER)': '0',
                 '(UBI)': '0',
@@ -293,6 +294,7 @@ def main():
                 '(SBA)': '0',
                 '(EMI)': '0',
                 '(SOL)': '0',
+                '(TAI)': '0',
                 '(TAR)': '0',
                 '(TER)': '0',
                 '(UBI)': '0',
@@ -390,6 +392,7 @@ def main():
                 '(SBA)': 'SANTA BÁRBARA', # TA
                 '(EMI)': 'SANTO EMÍLIO', # TA 
                 '(SOL)': 'SOL NASCENTE',
+                '(TAI)': 'TAIS', 
                 '(TAR)': 'TARSILA', 
                 '(TER)': 'TERRACE', # TA 
                 '(UBI)': 'UBIRAJARA', # TA 
@@ -646,6 +649,7 @@ def main():
                 '(SBA)',
                 '(EMI)',
                 '(SOL)',
+                '(TAI)',
                 '(TAR)',
                 '(TER)',
                 '(UBI)',
@@ -806,6 +810,7 @@ def main():
                 '(SBA)',
                 '(EMI)',
                 '(SOL)',
+                '(TAI)',
                 '(TAR)',
                 '(TER)',
                 '(UBI)',
@@ -1015,7 +1020,8 @@ def main():
                 "UNI",
                 "VFE",
                 "VIR",
-                "ICO"
+                "ICO",
+                "TAI"
                 
             ]
 
@@ -1035,6 +1041,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 

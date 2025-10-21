@@ -322,6 +322,7 @@ def main():
                 '(PDE) (NG)': '0', # TA 
                 '(RAY) (NG)': '0', # TA 
                 '(SOL) (NG)': '0', # TA 
+                '(TAI) (NG)': '0', # TA
                 '(UBI) (NG)': '0', # TA 
                 '(UNI) (NG)': '0', # TA 
                 '(VFE) (NG)': '0' # TA 
@@ -436,6 +437,7 @@ def main():
                 '(SBA) (NG)': 'SANTA BÁRBARA (NG)',
                 '(EMI) (NG)': 'SANTO EMÍLIO (NG)',
                 '(SOL) (NG)': 'SOL NASCENTE (NG)',
+                '(TAI) (NG)': 'TAIS (NG)', # TA
                 '(TAR) (NG)': 'TARSILA (NG)',
                 '(TER) (NG)': 'TERRACE (NG)',
                 '(UBI) (NG)': 'UBIRAJARA (NG)',
@@ -716,6 +718,7 @@ def main():
                 '(PDE)',
                 '(RAY)',
                 '(SOL)',
+                '(TAI)',
                 '(UBI)',
                 '(UNI)',
                 '(VFE)'
@@ -845,6 +848,7 @@ def main():
                 '(PDE) (NG)',
                 '(RAY) (NG)',
                 '(SOL) (NG)',
+                '(TAI) (NG)',
                 '(UBI) (NG)',
                 '(UNI) (NG)',
                 '(VFE) (NG)'
@@ -1041,6 +1045,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 

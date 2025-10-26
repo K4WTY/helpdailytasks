@@ -196,7 +196,7 @@ def main():
                 '(SBA)': '0',
                 '(EMI)': '0',
                 '(SOL)': '0',
-                '(TAI)': '0',
+                '(TAI)': 'teste',
                 '(TAR)': '0',
                 '(TER)': '0',
                 '(UBI)': '0',
@@ -1045,6 +1045,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 

@@ -160,6 +160,7 @@ def main():
                 '(GAP)': '0',
                 '(ABA)': '0',
                 '(ACO)': '0',
+                '(ANA)': '0',
                 '(BRO)': '0',
                 '(CAP)': '0',
                 '(CEN)': '0',
@@ -205,6 +206,7 @@ def main():
                 '(VFE)': '0',
                 '(ABA) (NG)': '0',
                 '(ACO) (NG)': '0',
+                '(ANA) (NG)': '0',
                 '(CAP) (NG)': '0',
                 '(CEN) (NG)': '0',
                 '(GLS) (NG)': '0',
@@ -259,6 +261,7 @@ def main():
                 '(NEU) (NG)': '0',
                 '(ABA)': '0',
                 '(ACO)': '0',
+                '(ANA)': '0',
                 '(BRO)': '0',
                 '(CAP)': '0',
                 '(CEN)': '0',
@@ -304,6 +307,7 @@ def main():
                 '(VFE)': '0',
                 '(ABA) (NG)': '0', # TA 
                 '(ACO) (NG)': '0', # TA 
+                '(ANA) (NG)': '0',
                 '(CAP) (NG)': '0', # TA 
                 '(CEN) (NG)': '0', # TA 
                 '(GLS) (NG)': '0', # TA 
@@ -358,6 +362,7 @@ def main():
                 '(NEU) (NG)': 'NOVA EUROPA (NG)', # TA 
                 '(ABA)': 'ABAETE', # TA 
                 '(ACO)': 'ACAPULCO', # TA 
+                '(ANA)': 'ANACÃ', # TA 
                 '(BRO)': 'BROMÉLIA', # TA 
                 '(CAP)': 'CAPRI', # TA 
                 '(CEN)': 'CENÁRIO',
@@ -403,6 +408,7 @@ def main():
                 '(VFE)': 'VIVA FELIZ', # TA 
                 '(ABA) (NG)': 'ABAETE (NG)',
                 '(ACO) (NG)': 'ACAPULCO (NG)',
+                '(ANA) (NG)': 'ANACÃ (NG)',
                 '(CAP) (NG)': 'CAPRI (NG)',
                 '(CEN) (NG)': 'CENÁRIO (NG)',
                 '(GLS) (NG)': 'GALASSI (NG)',
@@ -616,6 +622,7 @@ def main():
                 '(JCK 2)', # TA
                 '(ABA)',
                 '(ACO)',
+                '(ANA)',
                 '(BRO)',
                 '(CAP)',
                 '(CEN)',
@@ -700,6 +707,7 @@ def main():
                 '(NEU)', # TA 
                 '(ABA)',
                 '(ACO)',
+                '(ANA)',
                 '(CAP)',
                 '(CEN)',
                 '(GLS)',
@@ -778,6 +786,7 @@ def main():
                 '(JCK 2)', # TA
                 '(ABA)',
                 '(ACO)',
+                '(ANA)',
                 '(BRO)',
                 '(CAP)',
                 '(CEN)',
@@ -830,6 +839,7 @@ def main():
                 '(NEU) (NG)', # TA 
                 '(ABA) (NG)',
                 '(ACO) (NG)',
+                '(ANA) (NG)',
                 '(CAP) (NG)',
                 '(CEN) (NG)',
                 '(GLS) (NG)',
@@ -1026,8 +1036,8 @@ def main():
                 "VFE",
                 "VIR",
                 "ICO",
-                "TAI"
-                
+                "TAI",
+                "ANA"
             ]
 
 
@@ -1046,6 +1056,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 

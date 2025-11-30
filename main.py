@@ -25,7 +25,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio", "Notas Fiscais"])
     with st.sidebar:
-        st.subheader("Version - 21/10/2025")
+        st.subheader("Version - 30/11/2025")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")
@@ -180,6 +180,7 @@ def main():
                 '(LEO)': '0',
                 '(MEL)': '0',
                 '(LUA)': '0',
+                '(LUD)': '0',
                 '(MAD)': '0',
                 '(MCA)': '0',
                 '(MAR)': '0',
@@ -218,6 +219,7 @@ def main():
                 '(IVO) (NG)': '0',
                 '(JAN) (NG)': '0',
                 '(77) (NG)': '0',
+                '(LUD) (NG)': '0',
                 '(MTO) (NG)': '0',
                 '(ODE) (NG)': '0',
                 '(PDP) (NG)': '0',
@@ -281,6 +283,7 @@ def main():
                 '(LEO)': '0',
                 '(MEL)': '0',
                 '(LUA)': '0',
+                '(LUD)': '0',
                 '(MAD)': '0',
                 '(MCA)': '0',
                 '(MAR)': '0',
@@ -319,6 +322,7 @@ def main():
                 '(IVO) (NG)': '0', # TA 
                 '(JAN) (NG)': '0', # TA 
                 '(77) (NG)': '0', # TA 
+                '(LUD) (NG)': '0',
                 '(MTO) (NG)': '0', # TA 
                 '(ODE) (NG)': '0', # TA 
                 '(PDP) (NG)': '0', # TA 
@@ -382,6 +386,7 @@ def main():
                 '(LEO)': 'LEON', # TA
                 '(MEL)': 'LUA DE MEL', # TA
                 '(LUA)': 'LUARA', # TA 
+                '(LUD)': 'LUDWING VAN BEETHOVEN', # TA 
                 '(MAD)': 'MADRI', # TA 
                 '(MCA)': 'MANACA', # TA 
                 '(MAR)': 'MARACANÃ', # TA 
@@ -426,6 +431,7 @@ def main():
                 '(JDS) (NG)': 'JOÃO DE SOUZA (NG)',
                 '(LEO) (NG)': 'LEON (NG)',
                 '(77) (NG)': 'LUA DE MEL (NG)',
+                '(LUD) (NG)': 'LUDWING VAN BEETHOVEN (NG)', # TA 
                 '(LUA) (NG)': 'LUARA (NG)',
                 '(MAD) (NG)': 'MADRI (NG)',
                 '(MCA) (NG)': 'MANACA (NG)',
@@ -642,6 +648,7 @@ def main():
                 '(LEO)',
                 '(MEL)',
                 '(LUA)',
+                '(LUD)',
                 '(MAD)',
                 '(MCA)',
                 '(MAR)',
@@ -719,6 +726,7 @@ def main():
                 '(IVO)',
                 '(JAN)',
                 '(MEL)',
+                '(LUD)',
                 '(MTO)',
                 '(ODE)',
                 '(PDP)',
@@ -806,6 +814,7 @@ def main():
                 '(LEO)',
                 '(MEL)',
                 '(LUA)',
+                '(LUD)',
                 '(MAD)',
                 '(MCA)',
                 '(MAR)',
@@ -851,6 +860,7 @@ def main():
                 '(IVO) (NG)',
                 '(JAN) (NG)',
                 '(77) (NG)',
+                '(LUD) (NG)',
                 '(MTO) (NG)',
                 '(ODE) (NG)',
                 '(PDP) (NG)',
@@ -1038,6 +1048,7 @@ def main():
                 "ICO",
                 "TAI",
                 "ANA"
+                #"LUD"
             ]
 
 
@@ -1056,6 +1067,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 

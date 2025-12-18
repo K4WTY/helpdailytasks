@@ -83,6 +83,7 @@ def main():
                 '(GRE) (NG)',
                 '(GRY) (NG)',
                 '(GTU) (NG)',
+                '(HTO) (NG)',
                 '(GBA) (NG)',
                 '(GUA) (NG)',
                 '(HTO) (NG)',
@@ -215,6 +216,7 @@ def main():
                 '(GRE) (NG)': '0',
                 '(GRY) (NG)': '0',
                 '(GTU) (NG)': '0',
+                '(HTO) (NG)': '0',
                 '(ICO) (NG)': '0',
                 '(IVO) (NG)': '0',
                 '(JAN) (NG)': '0',
@@ -317,7 +319,8 @@ def main():
                 '(GAS) (NG)': '0', # TA 
                 '(GRE) (NG)': '0', # TA 
                 '(GRY) (NG)': '0', # TA 
-                '(GTU) (NG)': '0', # TA 
+                '(GTU) (NG)': '0', # TA
+                '(HTO) (NG)': '0', # TA
                 '(ICO) (NG)': '0', # TA 
                 '(IVO) (NG)': '0', # TA 
                 '(JAN) (NG)': '0', # TA 
@@ -421,6 +424,7 @@ def main():
                 '(GRE) (NG)': 'GRÉCIA (NG)',
                 '(GRY) (NG)': 'GRYGOR (NG)',
                 '(GTU) (NG)': 'GUARATUBA (NG)',
+                '(HTO) (NG)': 'HORTO (NG)',
                 '(GBA) (NG)': 'GUARIBA (NG)',
                 '(GUA) (NG)': 'GUARINI (NG)',
                 '(HTO) (NG)': 'HORTO (NG)',
@@ -722,6 +726,7 @@ def main():
                 '(GRE)',
                 '(GRY)',
                 '(GTU)',
+                '(HTO)',
                 '(ICO)',
                 '(IVO)',
                 '(JAN)',
@@ -856,6 +861,7 @@ def main():
                 '(GRE) (NG)',
                 '(GRY) (NG)',
                 '(GTU) (NG)',
+                '(HTO) (NG)',
                 '(ICO) (NG)',
                 '(IVO) (NG)',
                 '(JAN) (NG)',
@@ -1047,8 +1053,8 @@ def main():
                 "VIR",
                 "ICO",
                 "TAI",
-                "ANA"
-                #"LUD"
+                "ANA",
+                "LUD"
             ]
 
 
@@ -1067,6 +1073,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 

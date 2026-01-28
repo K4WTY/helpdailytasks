@@ -25,7 +25,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio", "Notas Fiscais"])
     with st.sidebar:
-        st.subheader("Version - 06/01/2026 - SER INCLUIDO")
+        st.subheader("Version - 06/01/2026 - VRT INCLUIDO")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")
@@ -203,6 +203,7 @@ def main():
                 '(TAI)': '0',
                 '(TAR)': '0',
                 '(TER)': '0',
+                '(VRT)': '0',
                 '(UBI)': '0',
                 '(UNI)': '0',
                 '(VIR)': '0',
@@ -308,6 +309,7 @@ def main():
                 '(TAI)': '0',
                 '(TAR)': '0',
                 '(TER)': '0',
+                '(VRT)': '0',
                 '(UBI)': '0',
                 '(UNI)': '0',
                 '(VIR)': '0',
@@ -413,6 +415,7 @@ def main():
                 '(TAI)': 'TAIS', 
                 '(TAR)': 'TARSILA', 
                 '(TER)': 'TERRACE', # TA 
+                '(VRT)': 'TONIN MEDICINA DESPORTIVA',
                 '(UBI)': 'UBIRAJARA', # TA 
                 '(UNI)': 'UNIQUE', # TA
                 '(VIR)': 'VIRGINIA', # TA
@@ -677,6 +680,7 @@ def main():
                 '(TAI)',
                 '(TAR)',
                 '(TER)',
+                '(VRT)',
                 '(UBI)',
                 '(UNI)',
                 '(VIR)',
@@ -845,6 +849,7 @@ def main():
                 '(TAI)',
                 '(TAR)',
                 '(TER)',
+                '(VRT)',
                 '(UBI)',
                 '(UNI)',
                 '(VIR)',
@@ -1078,6 +1083,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 

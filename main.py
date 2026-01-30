@@ -25,7 +25,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio", "Notas Fiscais"])
     with st.sidebar:
-        st.subheader("Version - 06/01/2026 - VRT INCLUIDO")
+        st.subheader("Version - 30/01/2026 - VRT NG INCLUIDO")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")
@@ -233,6 +233,7 @@ def main():
                 '(RAY) (NG)': '0',
                 '(SOL) (NG)': '0',
                 '(TAI) (NG)': '0',
+                '(VRT) (NG)': '0',
                 '(UBI) (NG)': '0',
                 '(UNI) (NG)': '0',
                 '(VFE) (NG)': '0'
@@ -339,6 +340,7 @@ def main():
                 '(RAY) (NG)': '0', # TA 
                 '(SOL) (NG)': '0', # TA 
                 '(TAI) (NG)': '0', # TA
+                '(VRT) (NG)': '0',
                 '(UBI) (NG)': '0', # TA 
                 '(UNI) (NG)': '0', # TA 
                 '(VFE) (NG)': '0' # TA 
@@ -461,6 +463,7 @@ def main():
                 '(EMI) (NG)': 'SANTO EMÍLIO (NG)',
                 '(SOL) (NG)': 'SOL NASCENTE (NG)',
                 '(TAI) (NG)': 'TAIS (NG)', # TA
+                '(VRT) (NG)': 'TONIN MEDICINA DESPORTIVA (NG)',
                 '(TAR) (NG)': 'TARSILA (NG)',
                 '(TER) (NG)': 'TERRACE (NG)',
                 '(UBI) (NG)': 'UBIRAJARA (NG)',
@@ -749,6 +752,7 @@ def main():
                 '(RAY)',
                 '(SOL)',
                 '(TAI)',
+                '(VRT)',
                 '(UBI)',
                 '(UNI)',
                 '(VFE)'
@@ -886,6 +890,7 @@ def main():
                 '(RAY) (NG)',
                 '(SOL) (NG)',
                 '(TAI) (NG)',
+                '(VRT) (NG)',
                 '(UBI) (NG)',
                 '(UNI) (NG)',
                 '(VFE) (NG)'
@@ -1083,6 +1088,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 

@@ -25,7 +25,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio", "Notas Fiscais"])
     with st.sidebar:
-        st.subheader("Version - 05;03;2026 - STO INCLUIDO")
+        st.subheader("Version - 06/03/2026 - RE2 INCLUIDO")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")
@@ -196,6 +196,7 @@ def main():
                 '(RAV)': '0',
                 '(RAY)': '0',
                 '(REI)': '0',
+                '(RE2)': '0',
                 '(SBA)': '0',
                 '(EMI)': '0',
                 '(STO)': '0',
@@ -304,6 +305,7 @@ def main():
                 '(RAV)': '0',
                 '(RAY)': '0',
                 '(REI)': '0',
+                '(RE2)': '0',
                 '(SBA)': '0',
                 '(EMI)': '0',
                 '(STO)': '0',
@@ -412,6 +414,7 @@ def main():
                 '(RAV)': 'RAVENA', # TA
                 '(RAY)': 'RAYRA', # TA 
                 '(REI)': 'REI DAVID', # TA 
+                '(RE2)': 'RUBENS LARA',
                 '(SBA)': 'SANTA BÁRBARA', # TA
                 '(EMI)': 'SANTO EMÍLIO', # TA 
                 '(STO)': 'SANTOS',
@@ -679,6 +682,7 @@ def main():
                 '(RAV)',
                 '(RAY)',
                 '(REI)',
+                '(RE2)',
                 '(SBA)',
                 '(EMI)',
                 '(STO)',
@@ -850,6 +854,7 @@ def main():
                 '(RAV)',
                 '(RAY)',
                 '(REI)',
+                '(RE2)',
                 '(SBA)',
                 '(EMI)',
                 '(STO)',
@@ -1093,6 +1098,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 

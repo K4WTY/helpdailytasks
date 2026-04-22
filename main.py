@@ -25,7 +25,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio", "Notas Fiscais"])
     with st.sidebar:
-        st.subheader("Version - 06/03/2026 - RE2 INCLUIDO")
+        st.subheader("Version - 22/04/2026 - URC INCLUIDO")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")
@@ -192,6 +192,7 @@ def main():
                 '(PSV)': '0',
                 '(PDS)': '0',
                 '(PRA)': '0',
+                '(URC)': '0',
                 '(PDE)': '0',
                 '(RAV)': '0',
                 '(RAY)': '0',
@@ -410,6 +411,7 @@ def main():
                 '(PSV)': 'PARQUE SÃO VICENTE', # TA
                 '(PDS)': 'PORTAL DO SOL', # TA 
                 '(PRA)': 'PRADO', # TA 
+                '(URC)': 'PRAIA DA URCA', # TA 
                 '(PDE)': 'PUNTA DEL ESTE', # TA 
                 '(RAV)': 'RAVENA', # TA
                 '(RAY)': 'RAYRA', # TA 
@@ -678,6 +680,7 @@ def main():
                 'PSV',
                 '(PDS)',
                 '(PRA)',
+                '(URC)',
                 '(PDE)',
                 '(RAV)',
                 '(RAY)',
@@ -850,6 +853,7 @@ def main():
                 '(PSV)',
                 '(PDS)',
                 '(PRA)',
+                '(URC)',
                 '(PDE)',
                 '(RAV)',
                 '(RAY)',

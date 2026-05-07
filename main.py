@@ -25,7 +25,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio", "Notas Fiscais"])
     with st.sidebar:
-        st.subheader("Version - 22/04/2026 - URC INCLUIDO")
+        st.subheader("Version - 07/05/2026 - VIT INCLUIDO")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")
@@ -210,6 +210,7 @@ def main():
                 '(UBI)': '0',
                 '(UNI)': '0',
                 '(VIR)': '0',
+                '(VIT)': '0',
                 '(VFE)': '0',
                 '(ABA) (NG)': '0',
                 '(ACO) (NG)': '0',
@@ -319,6 +320,7 @@ def main():
                 '(UBI)': '0',
                 '(UNI)': '0',
                 '(VIR)': '0',
+                '(VIT)': '0',
                 '(VFE)': '0',
                 '(ABA) (NG)': '0', # TA 
                 '(ACO) (NG)': '0', # TA 
@@ -429,6 +431,7 @@ def main():
                 '(UBI)': 'UBIRAJARA', # TA 
                 '(UNI)': 'UNIQUE', # TA
                 '(VIR)': 'VIRGINIA', # TA
+                '(VIT)': 'VITORIA', # TA
                 '(VFE)': 'VIVA FELIZ', # TA 
                 '(ABA) (NG)': 'ABAETE (NG)',
                 '(ACO) (NG)': 'ACAPULCO (NG)',
@@ -698,6 +701,7 @@ def main():
                 '(UBI)',
                 '(UNI)',
                 '(VIR)',
+                '(VIT)',
                 '(VFE)',
             ]
             
@@ -871,6 +875,7 @@ def main():
                 '(UBI)',
                 '(UNI)',
                 '(VIR)',
+                '(VIT)',
                 '(VFE)',
             ]
 

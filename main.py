@@ -25,7 +25,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio", "Notas Fiscais"])
     with st.sidebar:
-        st.subheader("Version - 12/05/2026 - RF1 INCLUIDO")
+        st.subheader("Version - 18/05/2026 - STN INCLUIDO")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")
@@ -202,6 +202,7 @@ def main():
                 '(SBA)': '0',
                 '(EMI)': '0',
                 '(STO)': '0',
+                '(STN)': '0',
                 '(SER)': '0',
                 '(SOL)': '0',
                 '(TAI)': '0',
@@ -313,6 +314,7 @@ def main():
                 '(SBA)': '0',
                 '(EMI)': '0',
                 '(STO)': '0',
+                '(STN)': '0',
                 '(SER)': '0',
                 '(SOL)': '0',
                 '(TAI)': '0',
@@ -425,6 +427,7 @@ def main():
                 '(SBA)': 'SANTA BÁRBARA', # TA
                 '(EMI)': 'SANTO EMÍLIO', # TA 
                 '(STO)': 'SANTOS',
+                '(STN)': 'SANTOS N',
                 '(SER)': 'SERRA DO MAR',
                 '(SOL)': 'SOL NASCENTE',
                 '(TAI)': 'TAIS', 
@@ -696,6 +699,7 @@ def main():
                 '(SBA)',
                 '(EMI)',
                 '(STO)',
+                '(STN)',
                 '(SER)',
                 '(SOL)',
                 '(TAI)',
@@ -871,6 +875,7 @@ def main():
                 '(SBA)',
                 '(EMI)',
                 '(STO)',
+                '(STN)',
                 '(SER)',
                 '(SOL)',
                 '(TAI)',

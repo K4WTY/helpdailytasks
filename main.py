@@ -305,6 +305,7 @@ def main():
                 '(PSV)': '0',
                 '(PDS)': '0',
                 '(PRA)': '0',
+                '(URC)': '0',
                 '(PDE)': '0',
                 '(RAV)': '0',
                 '(RAY)': '0',
@@ -326,35 +327,35 @@ def main():
                 '(VIR)': '0',
                 '(VIT)': '0',
                 '(VFE)': '0',
-                '(ABA) (NG)': '0', # TA 
-                '(ACO) (NG)': '0', # TA 
+                '(ABA) (NG)': '0',
+                '(ACO) (NG)': '0',
                 '(ANA) (NG)': '0',
-                '(CAP) (NG)': '0', # TA 
-                '(CEN) (NG)': '0', # TA 
-                '(GLS) (NG)': '0', # TA 
-                '(GAS) (NG)': '0', # TA 
-                '(GRE) (NG)': '0', # TA 
-                '(GRY) (NG)': '0', # TA 
-                '(GTU) (NG)': '0', # TA
-                '(HTO) (NG)': '0', # TA
-                '(ICO) (NG)': '0', # TA 
-                '(IVO) (NG)': '0', # TA 
-                '(JAN) (NG)': '0', # TA 
-                '(77) (NG)': '0', # TA 
+                '(CAP) (NG)': '0',
+                '(CEN) (NG)': '0',
+                '(GLS) (NG)': '0',
+                '(GAS) (NG)': '0',
+                '(GRE) (NG)': '0',
+                '(GRY) (NG)': '0',
+                '(GTU) (NG)': '0',
+                '(HTO) (NG)': '0',
+                '(ICO) (NG)': '0',
+                '(IVO) (NG)': '0',
+                '(JAN) (NG)': '0',
+                '(77) (NG)': '0',
                 '(LUD) (NG)': '0',
-                '(MTO) (NG)': '0', # TA 
-                '(ODE) (NG)': '0', # TA 
-                '(PDP) (NG)': '0', # TA 
-                '(PSV) (NG)': '0', # TA 
-                '(PDS) (NG)': '0', # TA 
-                '(PDE) (NG)': '0', # TA 
-                '(RAY) (NG)': '0', # TA 
-                '(SOL) (NG)': '0', # TA 
-                '(TAI) (NG)': '0', # TA
+                '(MTO) (NG)': '0',
+                '(ODE) (NG)': '0',
+                '(PDP) (NG)': '0',
+                '(PSV) (NG)': '0',
+                '(PDS) (NG)': '0',
+                '(PDE) (NG)': '0',
+                '(RAY) (NG)': '0',
+                '(SOL) (NG)': '0',
+                '(TAI) (NG)': '0',
                 '(VRT) (NG)': '0',
-                '(UBI) (NG)': '0', # TA 
-                '(UNI) (NG)': '0', # TA 
-                '(VFE) (NG)': '0' # TA 
+                '(UBI) (NG)': '0',
+                '(UNI) (NG)': '0',
+                '(VFE) (NG)': '0'
             }
 
             renomearSiglas = {

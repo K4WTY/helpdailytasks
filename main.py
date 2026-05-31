@@ -25,7 +25,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio", "Notas Fiscais"])
     with st.sidebar:
-        st.subheader("Version - 18/05/2026 - STN INCLUIDO")
+        st.subheader("Version - 31/05/2026 - STN NG E TAM")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")
@@ -206,6 +206,7 @@ def main():
                 '(SER)': '0',
                 '(SOL)': '0',
                 '(TAI)': '0',
+                '(TAM)': '0',
                 '(TAR)': '0',
                 '(TER)': '0',
                 '(VRT)': '0',
@@ -237,6 +238,7 @@ def main():
                 '(PDS) (NG)': '0',
                 '(PDE) (NG)': '0',
                 '(RAY) (NG)': '0',
+                '(STN) (NG)': '0',
                 '(SOL) (NG)': '0',
                 '(TAI) (NG)': '0',
                 '(VRT) (NG)': '0',
@@ -319,6 +321,7 @@ def main():
                 '(SER)': '0',
                 '(SOL)': '0',
                 '(TAI)': '0',
+                '(TAM)': '0',
                 '(TAR)': '0',
                 '(TER)': '0',
                 '(VRT)': '0',
@@ -350,6 +353,7 @@ def main():
                 '(PDS) (NG)': '0',
                 '(PDE) (NG)': '0',
                 '(RAY) (NG)': '0',
+                '(STN) (NG)': '0',
                 '(SOL) (NG)': '0',
                 '(TAI) (NG)': '0',
                 '(VRT) (NG)': '0',
@@ -432,6 +436,7 @@ def main():
                 '(SER)': 'SERRA DO MAR',
                 '(SOL)': 'SOL NASCENTE',
                 '(TAI)': 'TAIS', 
+                '(TAM)': 'TAMANDARÉ',
                 '(TAR)': 'TARSILA', 
                 '(TER)': 'TERRACE', # TA 
                 '(VRT)': 'TONIN MEDICINA DESPORTIVA',
@@ -476,6 +481,7 @@ def main():
                 '(PDE) (NG)': 'PUNTA DEL ESTE (NG)',
                 '(RAV) (NG)': 'RAVENA (NG)',
                 '(RAY) (NG)': 'RAYRA (NG)',
+                '(STN) (NG)': 'SANTOS N (NG)',
                 '(REI) (NG)': 'REI DAVID (NG)',
                 '(SBA) (NG)': 'SANTA BÁRBARA (NG)',
                 '(EMI) (NG)': 'SANTO EMÍLIO (NG)',
@@ -704,6 +710,7 @@ def main():
                 '(SER)',
                 '(SOL)',
                 '(TAI)',
+                '(TAM)',
                 '(TAR)',
                 '(TER)',
                 '(VRT)',
@@ -774,6 +781,7 @@ def main():
                 '(PDS)',
                 '(PDE)',
                 '(RAY)',
+                '(STN)',
                 '(SOL)',
                 '(TAI)',
                 '(VRT)',
@@ -880,6 +888,7 @@ def main():
                 '(SER)',
                 '(SOL)',
                 '(TAI)',
+                '(TAM)',
                 '(TAR)',
                 '(TER)',
                 '(VRT)',
@@ -917,6 +926,7 @@ def main():
                 '(PSV) (NG)',
                 '(PDS) (NG)',
                 '(PDE) (NG)',
+                '(RAY) (NG)',
                 '(RAY) (NG)',
                 '(SOL) (NG)',
                 '(TAI) (NG)',

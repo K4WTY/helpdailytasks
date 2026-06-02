@@ -927,7 +927,7 @@ def main():
                 '(PDS) (NG)',
                 '(PDE) (NG)',
                 '(RAY) (NG)',
-                '(RAY) (NG)',
+                '(STN) (NG)',
                 '(SOL) (NG)',
                 '(TAI) (NG)',
                 '(VRT) (NG)',

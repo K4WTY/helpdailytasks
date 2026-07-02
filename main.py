@@ -25,7 +25,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio", "Notas Fiscais"])
     with st.sidebar:
-        st.subheader("Version - 31/05/2026 - STN NG E TAM")
+        st.subheader("Version - 02/07/2026 - FCE e MAN")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")
@@ -184,6 +184,7 @@ def main():
                 '(LUD)': '0',
                 '(MAD)': '0',
                 '(MCA)': '0',
+                '(MAN)': '0',
                 '(MAR)': '0',
                 '(MTO)': '0',
                 '(ODE)': '0',
@@ -214,6 +215,7 @@ def main():
                 '(UNI)': '0',
                 '(VIR)': '0',
                 '(VIT)': '0',
+                '(FCE)': '0',
                 '(VFE)': '0',
                 '(ABA) (NG)': '0',
                 '(ACO) (NG)': '0',
@@ -231,6 +233,7 @@ def main():
                 '(JAN) (NG)': '0',
                 '(77) (NG)': '0',
                 '(LUD) (NG)': '0',
+                '(MAN) (NG)': '0',
                 '(MTO) (NG)': '0',
                 '(ODE) (NG)': '0',
                 '(PDP) (NG)': '0',
@@ -299,6 +302,7 @@ def main():
                 '(LUD)': '0',
                 '(MAD)': '0',
                 '(MCA)': '0',
+                '(MAN)': '0',
                 '(MAR)': '0',
                 '(MTO)': '0',
                 '(ODE)': '0',
@@ -329,6 +333,7 @@ def main():
                 '(UNI)': '0',
                 '(VIR)': '0',
                 '(VIT)': '0',
+                '(FCE)': '0',
                 '(VFE)': '0',
                 '(ABA) (NG)': '0',
                 '(ACO) (NG)': '0',
@@ -346,6 +351,7 @@ def main():
                 '(JAN) (NG)': '0',
                 '(77) (NG)': '0',
                 '(LUD) (NG)': '0',
+                '(MAN) (NG)': '0',
                 '(MTO) (NG)': '0',
                 '(ODE) (NG)': '0',
                 '(PDP) (NG)': '0',
@@ -414,6 +420,7 @@ def main():
                 '(LUD)': 'LUDWING VAN BEETHOVEN', # TA 
                 '(MAD)': 'MADRI', # TA 
                 '(MCA)': 'MANACA', # TA 
+                '(MAN)': 'MANON', # TA 
                 '(MAR)': 'MARACANÃ', # TA 
                 '(MTO)': 'MARALTO', # TA 
                 '(ODE)': 'ODETE', # TA 
@@ -444,6 +451,7 @@ def main():
                 '(UNI)': 'UNIQUE', # TA
                 '(VIR)': 'VIRGINIA', # TA
                 '(VIT)': 'VITORIA', # TA
+                '(FCE)': 'VIVA FELICCE',
                 '(VFE)': 'VIVA FELIZ', # TA 
                 '(ABA) (NG)': 'ABAETE (NG)',
                 '(ACO) (NG)': 'ACAPULCO (NG)',
@@ -471,6 +479,7 @@ def main():
                 '(MAD) (NG)': 'MADRI (NG)',
                 '(MCA) (NG)': 'MANACA (NG)',
                 '(MAR) (NG)': 'MARACANÃ (NG)',
+                '(MAN) (NG)': 'MANON (NG)',
                 '(MTO) (NG)': 'MARALTO (NG)',
                 '(ODE) (NG)': 'ODETE (NG)',
                 '(PAN) (NG)': 'PANORAMA (NG)',
@@ -688,6 +697,7 @@ def main():
                 '(LUD)',
                 '(MAD)',
                 '(MCA)',
+                '(MAN)',
                 '(MAR)',
                 '(MTO)',
                 '(ODE)',
@@ -718,6 +728,7 @@ def main():
                 '(UNI)',
                 '(VIR)',
                 '(VIT)',
+                '(FCE)',
                 '(VFE)',
             ]
             
@@ -774,6 +785,7 @@ def main():
                 '(JAN)',
                 '(MEL)',
                 '(LUD)',
+                '(MAN)',
                 '(MTO)',
                 '(ODE)',
                 '(PDP)',
@@ -866,6 +878,7 @@ def main():
                 '(LUD)',
                 '(MAD)',
                 '(MCA)',
+                '(MAN)',
                 '(MAR)',
                 '(MTO)',
                 '(ODE)',
@@ -896,6 +909,7 @@ def main():
                 '(UNI)',
                 '(VIR)',
                 '(VIT)',
+                '(FCE)',
                 '(VFE)',
             ]
 
@@ -920,6 +934,7 @@ def main():
                 '(JAN) (NG)',
                 '(77) (NG)',
                 '(LUD) (NG)',
+                '(MAN) (NG)',
                 '(MTO) (NG)',
                 '(ODE) (NG)',
                 '(PDP) (NG)',

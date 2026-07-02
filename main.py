@@ -25,7 +25,7 @@ def main():
     st.set_page_config(page_title="ESR - Auxílio", page_icon=":crown:")
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Receitas", "Cobranças", "Inadimplências", "Encargos de cobranças", "Correio", "Notas Fiscais"])
     with st.sidebar:
-        st.subheader("Version - 02/07/2026 - FCE e MAN")
+        st.subheader("Version - 02/07/2026 - FCE, MAN, DIM e RH1")
         pdf_docs = st.file_uploader("Carregue seus arquivos em formato PDF", accept_multiple_files=True)
     with tab1:
         st.image("./imgs/exemplo1.png")
@@ -200,6 +200,7 @@ def main():
                 '(REI)': '0',
                 '(RE2)': '0',
                 '(RF1)': '0',
+                '(RH1)': '0',
                 '(SBA)': '0',
                 '(EMI)': '0',
                 '(STO)': '0',
@@ -213,6 +214,7 @@ def main():
                 '(VRT)': '0',
                 '(UBI)': '0',
                 '(UNI)': '0',
+                '(DIM)': '0',
                 '(VIR)': '0',
                 '(VIT)': '0',
                 '(FCE)': '0',
@@ -318,6 +320,7 @@ def main():
                 '(REI)': '0',
                 '(RE2)': '0',
                 '(RF1)': '0',
+                '(RH1)': '0',
                 '(SBA)': '0',
                 '(EMI)': '0',
                 '(STO)': '0',
@@ -331,6 +334,7 @@ def main():
                 '(VRT)': '0',
                 '(UBI)': '0',
                 '(UNI)': '0',
+                '(DIM)': '0',
                 '(VIR)': '0',
                 '(VIT)': '0',
                 '(FCE)': '0',
@@ -436,6 +440,7 @@ def main():
                 '(REI)': 'REI DAVID', # TA 
                 '(RE2)': 'RUBENS LARA',
                 '(RF1)': 'RUBENS LARA F1',
+                '(RH1)': 'RUBENS LARA H1',
                 '(SBA)': 'SANTA BÁRBARA', # TA
                 '(EMI)': 'SANTO EMÍLIO', # TA 
                 '(STO)': 'SANTOS',
@@ -449,6 +454,7 @@ def main():
                 '(VRT)': 'TONIN MEDICINA DESPORTIVA',
                 '(UBI)': 'UBIRAJARA', # TA 
                 '(UNI)': 'UNIQUE', # TA
+                '(DIM)': 'VILLAGIO DI MARBELLO',
                 '(VIR)': 'VIRGINIA', # TA
                 '(VIT)': 'VITORIA', # TA
                 '(FCE)': 'VIVA FELICCE',
@@ -713,6 +719,7 @@ def main():
                 '(REI)',
                 '(RE2)',
                 '(RF1)',
+                '(RH1)',
                 '(SBA)',
                 '(EMI)',
                 '(STO)',
@@ -726,6 +733,7 @@ def main():
                 '(VRT)',
                 '(UBI)',
                 '(UNI)',
+                '(DIM)',
                 '(VIR)',
                 '(VIT)',
                 '(FCE)',
@@ -894,6 +902,7 @@ def main():
                 '(REI)',
                 '(RE2)',
                 '(RF1)',
+                '(RH1)',
                 '(SBA)',
                 '(EMI)',
                 '(STO)',
@@ -907,6 +916,7 @@ def main():
                 '(VRT)',
                 '(UBI)',
                 '(UNI)',
+                '(DIM)',
                 '(VIR)',
                 '(VIT)',
                 '(FCE)',
